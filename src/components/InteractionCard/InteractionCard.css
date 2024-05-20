@@ -1,0 +1,12 @@
+.name {
+  font-weight: 600;
+  font-size: larger;
+}
+
+.post-name {
+  font-weight: 400;
+}
+.post-container {
+  display: flex;
+  flex-direction: row;
+}

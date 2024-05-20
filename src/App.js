@@ -5,17 +5,21 @@ import PostsList from './pages/PostsList/PostsList'
 import Teams from './pages/Teams/Teams'
 import Users from './pages/Users/Users'
 
-import ResponsiveDrawer from './components/Drawer'
+import ResponsiveDrawer from './components/Drawer/Drawer'
 
 function App() {
   return (
     <div className='App'>
-      <ResponsiveDrawer />
-      <Routes>
-        <Route path='/' element={<PostsList />} />
-        <Route path='/teams' element={<Teams />} />
-        <Route path='/users' element={<Users />} />
-      </Routes>
+      <div className='drawer'>
+        <ResponsiveDrawer />
+      </div>
+      <div className='content'>
+        <Routes>
+          <Route path='/' element={<PostsList />} />
+          <Route path='/teams' element={<Teams />} />
+          <Route path='/users' element={<Users />} />
+        </Routes>
+      </div>
     </div>
   )
 }

@@ -18,6 +18,8 @@ import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import { Link } from 'react-router-dom'
 
+import './Drawer.css'
+
 const drawerWidth = 240
 
 const navigation = [
@@ -61,7 +63,7 @@ function ResponsiveDrawer(props) {
       <Divider />
       <List>
         {navigation.map((item, index) => (
-          <Link to={item.url} key={index}>
+          <Link to={item.url} key={index} id='link-item'>
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
