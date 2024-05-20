@@ -19,9 +19,8 @@ const PostsList = () => {
 
   return (
     <div>
-      <h3>PostList Component</h3>
       {postsData?.map((item, index) => (
-        <div key={index}>
+        <div className='posts-lists' key={index}>
           <InteractionCard data={item} />
         </div>
       ))}

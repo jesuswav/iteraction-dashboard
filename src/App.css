@@ -9,11 +9,23 @@
 .content {
   width: 100%;
   margin-top: 102px;
+
+  scroll-behavior: smooth;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+@media only screen and (max-width: 767px) {
+  .content {
+    padding: 0px 10px 0px 10px;
+    scroll-behavior: smooth;
+  }
+  .drawer {
+    width: 2%;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
