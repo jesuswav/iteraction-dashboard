@@ -3,8 +3,12 @@
   flex-direction: row;
 }
 
+.drawer {
+  width: 20%;
+}
 .content {
-  margin-top: 82px;
+  width: 100%;
+  margin-top: 102px;
 }
 
 .App-logo {

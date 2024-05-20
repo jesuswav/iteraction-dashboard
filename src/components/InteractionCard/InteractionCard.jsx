@@ -1,12 +1,39 @@
+import { useState } from 'react'
 import './InteractionCard.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons'
 
 const InteractionCard = (data) => {
+  const [visiblePosts, setVisiblePosts] = useState('non-visible')
+
   return (
     <div>
-      <span>
-        <p className='name'>{data.data.personal_name}</p>
+      <span
+        className='item-container'
+        onClick={() => {
+          if (visiblePosts === 'non-visible') {
+            setVisiblePosts('visible')
+          } else {
+            setVisiblePosts('non-visible')
+          }
+        }}
+      >
+        <div className='name-container'>
+          <FontAwesomeIcon
+            icon={faChevronDown}
+            className={
+              visiblePosts === 'non-visible' ? 'chevron-down' : 'chevron-left'
+            }
+          />
+          <p className='name'>{data.data.personal_name}</p>
+        </div>
+        <span className='team-tag'>
+          <p>Equipo</p>
+        </span>
+        <FontAwesomeIcon icon={faTriangleExclamation} size='xl' />
       </span>
-      <div>
+      <div className={`posts-container ${visiblePosts}`}>
         {data.data.posts.map((item, index) => (
           <span className='post-container' key={index}>
             <p className='post-name'>{item.post_name}</p>
@@ -14,11 +41,7 @@ const InteractionCard = (data) => {
           </span>
         ))}
       </div>
-      <div>
-        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
-          <path d='M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z' />
-        </svg>
-      </div>
+      <div></div>
       {console.log(data)}
     </div>
   )

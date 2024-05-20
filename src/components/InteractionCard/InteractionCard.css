@@ -1,12 +1,86 @@
+/* Main Item Styles */
+.item-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 98%;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+}
+.name-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+.chevron-down {
+  transform: rotate(-90deg);
+  transition: 0.3s;
+}
+.chevron-left {
+  transform: rotate(0deg);
+  transition: 0.3s;
+}
+.item-container:hover {
+  cursor: pointer;
+}
+.team-tag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 6px 0px 6px;
+  border-radius: 8px;
+  height: 28px;
+  color: white;
+  font-weight: 700;
+  background-color: blue;
+}
+
 .name {
   font-weight: 600;
   font-size: larger;
 }
 
+/* Styles of the list of posts */
 .post-name {
   font-weight: 400;
+}
+.posts-container {
+  transition: 0.5s;
+  margin-top: -8px;
+  margin-left: 28px;
 }
 .post-container {
   display: flex;
   flex-direction: row;
+  gap: 8px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.non-visible {
+  animation: fadeOut 0.5s forwards;
+  display: none;
+}
+.visible {
+  display: block;
+  animation: fadeIn 0.5s forwards;
 }
