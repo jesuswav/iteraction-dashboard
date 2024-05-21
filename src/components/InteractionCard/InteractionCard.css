@@ -52,29 +52,7 @@
   margin-top: -8px;
   margin-left: 28px;
 }
-.post-container {
-  display: flex;
-  flex-direction: row;
-  width: 94%;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-.post-name {
-  font-weight: 500;
-}
-.post-date {
-  font-weight: 600;
-}
-.first-post-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-}
-.post-container #complete-icon:hover {
-  cursor: pointer;
-}
+
 
 @keyframes fadeIn {
   from {
