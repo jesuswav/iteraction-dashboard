@@ -1,14 +1,12 @@
 .App {
   display: flex;
   flex-direction: row;
-}
-
-.drawer {
-  width: 20%;
+  width: 100%;
+  height: 100vh;
 }
 .content {
   width: 100%;
-  margin-top: 102px;
+  margin-top: 22px;
 
   scroll-behavior: smooth;
 }

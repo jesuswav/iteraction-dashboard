@@ -1,18 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import InteractionCard from '../../components/InteractionCard/InteractionCard'
 
-const PostsList = () => {
+const PersonalPostsList = () => {
   const [postsData, setPostData] = useState()
   const [selectedDate, setSelectedDate] = useState('2024-05-21')
 
   const fetchData = async () => {
-    // fetch('http://localhost:3000/registros')
-    //   .then((response) => response.json())
-    //   .then((data) => setPostData(data))
-    //   .catch((error) => {
-    //     console.error(error)
-    //   })
-
     const date = { date: selectedDate }
     const requestOptions = {
       method: 'POST',
@@ -65,4 +58,4 @@ const PostsList = () => {
   )
 }
 
-export default PostsList
+export default PersonalPostsList

@@ -28,6 +28,10 @@ const navigation = [
     url: '',
   },
   {
+    name: 'Posts',
+    url: 'posts',
+  },
+  {
     name: 'Teams',
     url: 'teams',
   },
@@ -67,7 +71,11 @@ function ResponsiveDrawer(props) {
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  {index % 2 === 0 ? <h2>2</h2> : <h2>3</h2>}
+                  {index % 2 === 0 ? (
+                    <h2>{index + 1}</h2>
+                  ) : (
+                    <h2>{index + 1}</h2>
+                  )}
                 </ListItemIcon>
                 <ListItemText primary={item.name} />
               </ListItemButton>

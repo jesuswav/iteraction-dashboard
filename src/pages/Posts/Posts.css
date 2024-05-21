@@ -1,0 +1,7 @@
+.add-post {
+  display: block;
+  position: relative;
+}
+.add-post:hover {
+  cursor: pointer;
+}
