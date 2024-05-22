@@ -1,0 +1,17 @@
+.user-card-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.user-card-subitem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+.user-card-subitem p {
+  font-size: larger;
+  font-weight: 600;
+}
