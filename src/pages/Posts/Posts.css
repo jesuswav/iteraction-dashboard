@@ -1,6 +1,11 @@
 .add-post {
-  display: block;
-  position: relative;
+  background: blue;
+  color: white;
+  padding: 10px 12px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 52px;
+  right: 12px;
 }
 .add-post:hover {
   cursor: pointer;

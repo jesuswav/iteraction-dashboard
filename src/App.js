@@ -7,12 +7,14 @@ import Teams from './pages/Teams/Teams'
 import Users from './pages/Users/Users'
 
 import ResponsiveDrawer from './components/Drawer/Drawer'
+import TabMenu from './components/TabMenu/TabMenu'
+import Search from './components/Search/Search'
 
 function App() {
   return (
     <div className='App'>
-      <div>
-        
+      <div className='search'>
+        <Search />
       </div>
       <div className='content'>
         <Routes>
@@ -21,6 +23,9 @@ function App() {
           <Route path='/teams' element={<Teams />} />
           <Route path='/users' element={<Users />} />
         </Routes>
+      </div>
+      <div className='tab-menu-container'>
+        <TabMenu />
       </div>
     </div>
   )

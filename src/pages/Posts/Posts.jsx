@@ -40,10 +40,6 @@ const Posts = () => {
 
   return (
     <div className='posts-div'>
-      <div onClick={handleOpenModal} className='add-post'>
-        <FontAwesomeIcon icon={faPlus} size='3x' />
-      </div>
-
       <h3>Posts</h3>
       {posts?.map((item, index) => (
         <div key={index}>
@@ -53,6 +49,9 @@ const Posts = () => {
       <Modal show={showModal} handleClose={handleCloseModal}>
         <NewPostForm handleSubmit={handleFormSubmit} />
       </Modal>
+      <div onClick={handleOpenModal} className='add-post'>
+        <FontAwesomeIcon icon={faPlus} size='3x' />
+      </div>
     </div>
   )
 }

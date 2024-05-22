@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  padding: 10px 35px;
+  margin-top: 12px;
 }
 .item-firts-subcontainer {
   width: 100%;
@@ -12,6 +12,10 @@
   align-items: center;
   gap: 22px;
 }
+.item-firts-subcontainer p {
+  color: gray;
+  font-weight: 600;
+}
 
 .item-subcontainer {
   width: 100%;
@@ -19,4 +23,7 @@
   flex-direction: row;
   justify-content: center;
   gap: 5%;
+}
+.item-subcontainer p {
+  font-weight: 600;
 }
