@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import InteractionCard from '../../components/InteractionCard/InteractionCard'
 
+import './PersonalPostsList.css'
+
 const PersonalPostsList = () => {
   const [postsData, setPostData] = useState()
   const [selectedDate, setSelectedDate] = useState('2024-05-21')
@@ -39,7 +41,7 @@ const PersonalPostsList = () => {
 
   return (
     <div>
-      <div>
+      <div className='filter-container'>
         <input
           type='date'
           name='date'
@@ -47,7 +49,9 @@ const PersonalPostsList = () => {
           value={selectedDate}
           onChange={handleDateChange}
         />
-        <button onClick={handleSubmit}>Filtrar</button>
+        <button className='date-button' onClick={handleSubmit}>
+          Filtrar
+        </button>
       </div>
       {postsData?.map((item, index) => (
         <div className='posts-lists' key={index}>
