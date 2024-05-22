@@ -53,6 +53,7 @@ const PersonalPostsList = () => {
           Filtrar
         </button>
       </div>
+      <h3>Personal and posts</h3>
       {postsData?.map((item, index) => (
         <div className='posts-lists' key={index}>
           <InteractionCard data={item} />

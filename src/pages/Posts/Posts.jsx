@@ -14,7 +14,6 @@ const Posts = () => {
     const response = await fetch('http://localhost:3000/posts')
     const responseData = await response.json()
     setPosts(responseData)
-    console.log(posts)
   }
 
   useEffect(() => {
@@ -32,10 +31,36 @@ const Posts = () => {
     setShowModal(false)
   }
 
-  const handleFormSubmit = (formData) => {
-    console.log('Form data:', formData)
-    // Aquí puedes manejar el envío del formulario (por ejemplo, enviar los datos a tu backend)
+  const handleFormSubmit = async (formData) => {
+    try {
+      const requestOptions = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      }
+
+      const url = 'http://localhost:3000/posts'
+
+      sendData(url, requestOptions)
+    } catch (e) {
+      console.error(e)
+    }
+
+    console.log(formData)
+    // Cerramos el Modal
     handleCloseModal()
+  }
+
+  const sendData = async (url, requestOptions) => {
+    const response = await fetch(url, requestOptions)
+    console.log(response)
+    if (!response.ok) {
+      throw new Error('Error al realizar la petición')
+    }
+    const responseData = await response.json()
+    console.log('Register response', responseData)
   }
 
   return (
