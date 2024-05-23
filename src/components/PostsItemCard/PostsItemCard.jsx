@@ -4,7 +4,6 @@ import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
 import './PostsItemCard.css'
 
 const PostsItemCard = (data) => {
-  console.log(data.data)
   return (
     <div className='post-item-container'>
       <span className='item-firts-subcontainer'>

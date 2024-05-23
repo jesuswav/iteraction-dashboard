@@ -55,7 +55,6 @@ const Posts = () => {
 
   const sendData = async (url, requestOptions) => {
     const response = await fetch(url, requestOptions)
-    console.log(response)
     if (!response.ok) {
       throw new Error('Error al realizar la petición')
     }

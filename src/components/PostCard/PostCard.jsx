@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { faCircle } from '@fortawesome/free-regular-svg-icons'
@@ -7,6 +7,17 @@ import './PostCard.css'
 
 const PostCard = (item) => {
   const [checked, setChecked] = useState(item.item.checked)
+  const date = new Date()
+
+  useEffect(() => {
+    setChecked(item.item.checked)
+    console.log(
+      'Checked from useEffect: ',
+      checked,
+      'ID: ',
+      item.item.unique_post_id
+    )
+  }, [item.item.checked])
 
   const updateChecked = async (id, value) => {
     const data = { id: id, value: value }
@@ -52,6 +63,7 @@ const PostCard = (item) => {
           id='complete-icon'
           onClick={() => {
             updateChecked(item.item.unique_post_id, 0)
+            item.item.checked = 0
             setChecked(0)
           }}
         />
@@ -62,9 +74,20 @@ const PostCard = (item) => {
           id='complete-icon'
           onClick={() => {
             updateChecked(item.item.unique_post_id, 1)
+            item.item.checked = 1
             setChecked(1)
           }}
         />
+      )}
+      {console.log(
+        'ID:',
+        item.item.unique_post_id,
+        'Date: ',
+        date,
+        'Checked state: ',
+        checked,
+        'Checked value: ',
+        item.item.checked
       )}
     </div>
   )
