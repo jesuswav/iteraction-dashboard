@@ -32,7 +32,7 @@ const InteractionCard = (data) => {
           <p className='name'>{data.data.personal_name}</p>
         </div>
         <span className='team-tag'>
-          <p>Equipo</p>
+          <p>{data.data.personal_team}</p>
         </span>
         <FontAwesomeIcon icon={faTriangleExclamation} size='xl' color='red' />
       </span>

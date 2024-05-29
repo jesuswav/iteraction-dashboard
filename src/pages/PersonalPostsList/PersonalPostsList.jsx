@@ -5,7 +5,7 @@ import './PersonalPostsList.css'
 
 const PersonalPostsList = () => {
   const [postsData, setPostData] = useState()
-  const [selectedDate, setSelectedDate] = useState('2024-05-21')
+  const [selectedDate, setSelectedDate] = useState('2024-05-28')
 
   const fetchData = async () => {
     const date = { date: selectedDate }
@@ -16,7 +16,7 @@ const PersonalPostsList = () => {
       },
       body: JSON.stringify(date),
     }
-    const url = 'http://localhost:3000/registros'
+    const url = 'http://localhost:3000/api/user_posts'
 
     const response = await fetch(url, requestOptions)
     if (!response.ok) {
@@ -54,6 +54,7 @@ const PersonalPostsList = () => {
         </button>
       </div>
       <h3>Personal and posts</h3>
+      {console.log(postsData)}
       {postsData?.map((item, index) => (
         <div className='posts-lists' key={index}>
           <InteractionCard data={item} />

@@ -30,7 +30,7 @@ const PostCard = (item) => {
         body: JSON.stringify(data),
       }
 
-      const url = 'http://localhost:3000/update_checked'
+      const url = 'http://localhost:3000/api/posts'
 
       sendData(url, requestOptions)
     } catch (e) {
@@ -53,7 +53,7 @@ const PostCard = (item) => {
       <span className='first-post-container'>
         <FontAwesomeIcon icon={faFacebook} size='xl' color='gray' />
         <p className='post-name'>{item.item.post_name}</p>
-        <p className='post-date'>{item.item?.registerDate.slice(0, -9)}</p>
+        <p className='post-date'>{item.item?.register_date.slice(0, -14)}</p>
       </span>
       {(checked && (
         <FontAwesomeIcon

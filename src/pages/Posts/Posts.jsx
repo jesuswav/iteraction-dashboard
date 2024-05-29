@@ -11,7 +11,7 @@ const Posts = () => {
   const [posts, setPosts] = useState([])
 
   const getPosts = async () => {
-    const response = await fetch('http://localhost:3000/posts')
+    const response = await fetch('http://localhost:3000/api/posts')
     const responseData = await response.json()
     setPosts(responseData)
   }
@@ -65,6 +65,7 @@ const Posts = () => {
   return (
     <div className='posts-div'>
       <h3>Posts</h3>
+      {console.log(posts)}
       {posts?.map((item, index) => (
         <div key={index}>
           <PostsItemCard data={item} />

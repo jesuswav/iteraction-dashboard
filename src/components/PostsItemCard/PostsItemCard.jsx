@@ -49,7 +49,7 @@ const PostsItemCard = (data) => {
         body: JSON.stringify({ post_id: data.data.post_id }),
       }
 
-      const url = 'http://localhost:3000/posts'
+      const url = 'http://localhost:3000/api/posts'
 
       deletePost(url, requestOptions)
     } catch (e) {
@@ -73,7 +73,7 @@ const PostsItemCard = (data) => {
         <p>{data.data.post_name}</p>
       </span>
       <span className='item-subcontainer'>
-        <p>{data.data.post_register_date.slice(0, -9)}</p>
+        <p>{data.data.register_date.slice(0, -14)}</p>
       </span>
       <span ref={buttonRef} className='post-options-icon'>
         <FontAwesomeIcon
