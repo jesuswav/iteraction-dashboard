@@ -7,22 +7,26 @@ const TeamForm = ({ handleSubmit }) => {
 
   const [formData, setFormData] = useState({
     team_name: '',
-    color: '',
+    team_color: '',
   })
 
   const handleChange = (e) => {
     setFormData({
       team_name: e.target.value,
-      color,
+      team_color: color,
     })
   }
 
   const onSubmit = (e) => {
     e.preventDefault()
+    setFormData({
+      team_name: formData.team_name,
+      team_color: color,
+    })
     handleSubmit(formData)
     setFormData({
       team_name: '',
-      color: '#ffffff',
+      team_color: '#ffffff',
     })
   }
 
