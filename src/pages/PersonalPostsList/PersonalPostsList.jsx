@@ -5,7 +5,7 @@ import './PersonalPostsList.css'
 
 const PersonalPostsList = () => {
   const [postsData, setPostData] = useState()
-  const [selectedDate, setSelectedDate] = useState('2024-05-28')
+  const [selectedDate, setSelectedDate] = useState('2024-05-29')
 
   const fetchData = async () => {
     const date = { date: selectedDate }
