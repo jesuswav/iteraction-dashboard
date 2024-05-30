@@ -7,7 +7,10 @@ const UserCard = (data) => {
     <div className='user-card-item'>
       <span className='user-card-subitem'>
         <FontAwesomeIcon icon={faUser} size='2x' color='gray' />
-        <p>{data.data.user_name}</p>
+        <p>{data.data.personal_name}</p>
+      </span>
+      <span className='team-tag'>
+        <p>{data.data.team_name}</p>
       </span>
       <span>
         <FontAwesomeIcon icon={faEllipsisVertical} size='2x' color='gray' />

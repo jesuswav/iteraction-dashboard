@@ -10,7 +10,7 @@ const Users = () => {
   const [users, setUsers] = useState([])
 
   const fetchUsers = async () => {
-    const response = await fetch('http://localhost:3000/personal')
+    const response = await fetch('http://localhost:3000/api/personal')
     const responseData = await response.json()
     setUsers(responseData)
   }
@@ -65,6 +65,7 @@ const Users = () => {
   return (
     <div>
       <h3>Users Component</h3>
+      {console.log(users)}
       {users?.map((item, index) => (
         <div key={index}>
           <UserCard data={item} />
