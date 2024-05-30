@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 import Modal from '../../components/Modal/Modal'
-import NewPostForm from '../../components/NewPostForm/NewPostForm'
+import UserForm from '../../components/UserForm/UserForm'
 import UserCard from '../../components/UserCard/UserCard'
 
 const Users = () => {
@@ -72,7 +72,7 @@ const Users = () => {
         </div>
       ))}
       <Modal show={showModal} handleClose={handleCloseModal}>
-        <NewPostForm handleSubmit={handleFormSubmit} />
+        <UserForm handleSubmit={handleFormSubmit} />
       </Modal>
       <div onClick={handleOpenModal} className='add-post'>
         <FontAwesomeIcon icon={faPlus} size='3x' />

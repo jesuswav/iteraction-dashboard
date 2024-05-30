@@ -75,13 +75,8 @@ const UserCard = (data) => {
       <span className='team-tag'>
         <p>{data.data.team_name}</p>
       </span>
-      <span ref={buttonRef}>
-        <FontAwesomeIcon
-          onClick={handleMenuToggle}
-          icon={faEllipsisVertical}
-          size='2x'
-          color='gray'
-        />
+      <span ref={buttonRef} onClick={handleMenuToggle}>
+        <FontAwesomeIcon icon={faEllipsisVertical} size='2x' color='gray' />
       </span>
       {menuOpen && (
         <div ref={menuRef} className='user-dropdown-menu' style={menuStyle}>
