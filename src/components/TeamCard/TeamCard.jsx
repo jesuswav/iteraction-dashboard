@@ -15,7 +15,7 @@ const TeamCard = (data) => {
   const [menuStyle, setMenuStyle] = useState({})
 
   const handleMenuToggle = () => {
-    console.log(data.data.team_id)
+    console.log(data.data.value)
     setMenuOpen(!menuOpen)
     if (buttonRef.current) {
       const rect = buttonRef.current.getBoundingClientRect()
@@ -69,8 +69,8 @@ const TeamCard = (data) => {
   return (
     <div className='user-card-item'>
       <span className='user-card-subitem'>
-        <FontAwesomeIcon icon={faUsers} size='2x' color='gray' />
-        <p>{data.data.team_name}</p>
+        <FontAwesomeIcon icon={faUsers} size='2x' color={data.data.color} />
+        <p>{data.data.label}</p>
       </span>
       <span ref={buttonRef} onClick={handleMenuToggle}>
         <FontAwesomeIcon icon={faEllipsisVertical} size='2x' color='gray' />

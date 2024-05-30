@@ -1,16 +1,20 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import Multiselect from '../SelectComponent/SelectComponent'
 import './UserForm.css'
 
 const UserForm = ({ handleSubmit }) => {
+  const [selectedOption, setSelectedOption] = useState(null)
+  const [teams, setTeams] = useState([])
+
   const [formData, setFormData] = useState({
-    post_name: '',
-    post_url: '',
+    personal_name: '',
+    team_id: '',
   })
 
   const handleChange = (e) => {
     setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
+      personal_name: e.target.value,
+      team_id: selectedOption?.value,
     })
   }
 
@@ -18,33 +22,55 @@ const UserForm = ({ handleSubmit }) => {
     e.preventDefault()
     handleSubmit(formData)
     setFormData({
-      post_name: '',
-      post_url: '',
+      personal_name: '',
+      team_id: '',
+    })
+  }
+
+  const getTeams = async () => {
+    const response = await fetch('http://localhost:3000/api/teams')
+    const responseData = await response.json()
+    setTeams(responseData)
+  }
+
+  useEffect(() => {
+    getTeams()
+  }, [])
+
+  const options = [
+    { value: 'equipo1', label: 'Equipo 1', color: 'blue' },
+    { value: 'equipo2', label: 'Equipo 2', color: 'green' },
+    { value: 'equipo3', label: 'Equipo 3', color: 'red' },
+    { value: 'equipo4', label: 'Equipo 4', color: 'orange' },
+    // Agrega más opciones según necesites
+  ]
+
+  const handleSelectChange = (selectedOption) => {
+    setSelectedOption(selectedOption)
+    setFormData({
+      personal_name: formData.personal_name,
+      team_id: selectedOption?.value,
     })
   }
 
   return (
     <form className='form-container' onSubmit={onSubmit}>
       <div className='input-container'>
-        <label className='input-label'>Post Name</label>
+        <label className='input-label'>Personal name</label>
         <input
           className='input'
           type='text'
-          name='post_name'
-          value={formData.post_name}
+          name='personal_name'
+          value={formData.personal_name}
           onChange={handleChange}
           required
         />
       </div>
-      <div className='input-container'>
-        <label className='input-label'>Post URL</label>
-        <input
-          className='input'
-          type='text'
-          name='post_url'
-          value={formData.post_url}
-          onChange={handleChange}
-          required
+      <div>
+        <Multiselect
+          options={teams}
+          selectedOption={selectedOption}
+          handleChange={handleSelectChange}
         />
       </div>
       <button className='post-form-button' type='submit'>

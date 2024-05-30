@@ -1,0 +1,32 @@
+.select-object:nth-child(1) {
+  display: flex;
+  flex-direction: co;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  border: none;
+  border-radius: 12px;
+  background-color: rgb(236, 236, 236);
+}
+
+.select-object .css-13cymwt-control {
+  border: none;
+  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  background: rgb(241, 241, 241);
+}
+.select-object .css-t3ipsp-control {
+  border: none;
+  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  background: rgb(241, 241, 241);
+}
+
+.css-1fdsijx-ValueContainer div {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}

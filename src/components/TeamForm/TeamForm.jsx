@@ -1,16 +1,19 @@
 import React, { useState } from 'react'
+import ColorPicker from '../ColorPicker/ColorPicker'
 import './TeamForm.css'
 
 const TeamForm = ({ handleSubmit }) => {
+  const [color, setColor] = useState('#ffffff')
+
   const [formData, setFormData] = useState({
-    post_name: '',
-    post_url: '',
+    team_name: '',
+    color: '',
   })
 
   const handleChange = (e) => {
     setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
+      team_name: e.target.value,
+      color,
     })
   }
 
@@ -18,34 +21,28 @@ const TeamForm = ({ handleSubmit }) => {
     e.preventDefault()
     handleSubmit(formData)
     setFormData({
-      post_name: '',
-      post_url: '',
+      team_name: '',
+      color: '#ffffff',
     })
   }
 
   return (
     <form className='form-container' onSubmit={onSubmit}>
       <div className='input-container'>
-        <label className='input-label'>Post Name</label>
+        <label className='input-label'>Team name</label>
         <input
           className='input'
           type='text'
-          name='post_name'
-          value={formData.post_name}
+          name='team_name'
+          value={formData.team_name}
           onChange={handleChange}
           required
         />
       </div>
-      <div className='input-container'>
-        <label className='input-label'>Post URL</label>
-        <input
-          className='input'
-          type='text'
-          name='post_url'
-          value={formData.post_url}
-          onChange={handleChange}
-          required
-        />
+      <div>
+        <label className='input-label'>Team Color</label>
+        <ColorPicker color={color} setColor={setColor} />
+        <p className='selected-color'>Color seleccionado: {color}</p>
       </div>
       <button className='post-form-button' type='submit'>
         Submit
