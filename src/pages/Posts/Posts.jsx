@@ -41,7 +41,7 @@ const Posts = () => {
         body: JSON.stringify(formData),
       }
 
-      const url = 'http://localhost:3000/posts'
+      const url = 'http://localhost:3000/api/posts'
 
       sendData(url, requestOptions)
     } catch (e) {

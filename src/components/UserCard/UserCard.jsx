@@ -72,7 +72,10 @@ const UserCard = (data) => {
         <FontAwesomeIcon icon={faUser} size='2x' color='gray' />
         <p>{data.data.personal_name}</p>
       </span>
-      <span className='team-tag'>
+      <span
+        className='team-tag'
+        style={{ background: `${data.data.team_color}` }}
+      >
         <p>{data.data.team_name}</p>
       </span>
       <span ref={buttonRef} onClick={handleMenuToggle}>

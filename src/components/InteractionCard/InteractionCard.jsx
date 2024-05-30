@@ -31,7 +31,10 @@ const InteractionCard = (data) => {
           />
           <p className='name'>{data.data.personal_name}</p>
         </div>
-        <span className='team-tag'>
+        <span
+          className='team-tag'
+          style={{ background: `${data.data.team_color}` }}
+        >
           <p>{data.data.personal_team}</p>
         </span>
         <FontAwesomeIcon icon={faTriangleExclamation} size='xl' color='red' />

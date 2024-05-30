@@ -31,21 +31,21 @@ const Users = () => {
   }
 
   const handleFormSubmit = async (formData) => {
-    // try {
-    //   const requestOptions = {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(formData),
-    //   }
+    try {
+      const requestOptions = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      }
 
-    //   const url = 'http://localhost:3000/posts'
+      const url = 'http://localhost:3000/api/personal'
 
-    //   sendData(url, requestOptions)
-    // } catch (e) {
-    //   console.error(e)
-    // }
+      sendData(url, requestOptions)
+    } catch (e) {
+      console.error(e)
+    }
 
     console.log(formData)
     // Cerramos el Modal
