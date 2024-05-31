@@ -10,7 +10,9 @@ const Users = () => {
   const [users, setUsers] = useState([])
 
   const fetchUsers = async () => {
-    const response = await fetch('http://localhost:3000/api/personal')
+    const response = await fetch(
+      'https://interaction-backend-1.onrender.com/api/personal'
+    )
     const responseData = await response.json()
     setUsers(responseData)
   }
@@ -40,7 +42,7 @@ const Users = () => {
         body: JSON.stringify(formData),
       }
 
-      const url = 'http://localhost:3000/api/personal'
+      const url = 'https://interaction-backend-1.onrender.com/api/personal'
 
       sendData(url, requestOptions)
     } catch (e) {

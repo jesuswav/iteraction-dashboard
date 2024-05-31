@@ -9,7 +9,9 @@ const Teams = () => {
   const [teams, setTeams] = useState([])
 
   const getTeams = async () => {
-    const response = await fetch('http://localhost:3000/api/teams')
+    const response = await fetch(
+      'https://interaction-backend-1.onrender.com/api/teams'
+    )
     const responseData = await response.json()
     setTeams(responseData)
   }
@@ -39,7 +41,7 @@ const Teams = () => {
         body: JSON.stringify(formData),
       }
 
-      const url = 'http://localhost:3000/api/teams'
+      const url = 'https://interaction-backend-1.onrender.com/api/teams'
 
       sendData(url, requestOptions)
     } catch (e) {

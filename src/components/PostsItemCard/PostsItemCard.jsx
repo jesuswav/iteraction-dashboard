@@ -49,7 +49,7 @@ const PostsItemCard = (data) => {
         body: JSON.stringify({ post_id: data.data.post_id }),
       }
 
-      const url = 'http://localhost:3000/api/posts'
+      const url = 'https://interaction-backend-1.onrender.com/api/posts'
 
       deletePost(url, requestOptions)
     } catch (e) {

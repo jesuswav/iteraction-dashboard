@@ -11,12 +11,6 @@ const PostCard = (item) => {
 
   useEffect(() => {
     setChecked(item.item.checked)
-    console.log(
-      'Checked from useEffect: ',
-      checked,
-      'ID: ',
-      item.item.unique_post_id
-    )
   }, [item.item.checked])
 
   const updateChecked = async (id, value) => {
@@ -30,7 +24,7 @@ const PostCard = (item) => {
         body: JSON.stringify(data),
       }
 
-      const url = 'http://localhost:3000/api/posts'
+      const url = 'https://interaction-backend-1.onrender.com/api/posts'
 
       sendData(url, requestOptions)
     } catch (e) {
@@ -40,12 +34,10 @@ const PostCard = (item) => {
 
   const sendData = async (url, requestOptions) => {
     const response = await fetch(url, requestOptions)
-    console.log(response)
     if (!response.ok) {
       throw new Error('Error al realizar la petición')
     }
     const responseData = await response.json()
-    console.log('Update response', responseData)
   }
 
   return (
@@ -78,16 +70,6 @@ const PostCard = (item) => {
             setChecked(1)
           }}
         />
-      )}
-      {console.log(
-        'ID:',
-        item.item.unique_post_id,
-        'Date: ',
-        date,
-        'Checked state: ',
-        checked,
-        'Checked value: ',
-        item.item.checked
       )}
     </div>
   )

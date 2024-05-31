@@ -49,7 +49,7 @@ const TeamCard = (data) => {
         body: JSON.stringify({ team_id: data.data.value }),
       }
 
-      const url = 'http://localhost:3000/api/teams'
+      const url = 'https://interaction-backend-1.onrender.com/api/teams'
 
       deletePost(url, requestOptions)
     } catch (e) {

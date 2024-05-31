@@ -49,7 +49,7 @@ const UserCard = (data) => {
         body: JSON.stringify({ personal_id: data.data.personal_id }),
       }
 
-      const url = 'http://localhost:3000/api/users'
+      const url = 'https://interaction-backend-1.onrender.com/api/users'
 
       deletePost(url, requestOptions)
     } catch (e) {

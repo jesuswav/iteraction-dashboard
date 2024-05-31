@@ -28,7 +28,9 @@ const UserForm = ({ handleSubmit }) => {
   }
 
   const getTeams = async () => {
-    const response = await fetch('http://localhost:3000/api/teams')
+    const response = await fetch(
+      'https://interaction-backend-1.onrender.com/api/teams'
+    )
     const responseData = await response.json()
     setTeams(responseData)
   }
