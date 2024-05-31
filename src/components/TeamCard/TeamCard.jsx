@@ -46,10 +46,10 @@ const TeamCard = (data) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ post_id: data.data.post_id }),
+        body: JSON.stringify({ team_id: data.data.value }),
       }
 
-      const url = 'http://localhost:3000/api/posts'
+      const url = 'http://localhost:3000/api/teams'
 
       deletePost(url, requestOptions)
     } catch (e) {

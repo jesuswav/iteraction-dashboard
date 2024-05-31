@@ -5,7 +5,15 @@ import './PersonalPostsList.css'
 
 const PersonalPostsList = () => {
   const [postsData, setPostData] = useState()
-  const [selectedDate, setSelectedDate] = useState('2024-05-29')
+  const getCurrentDate = () => {
+    const date = new Date()
+    const year = date.getFullYear()
+    const month = String(date.getMonth() + 1).padStart(2, '0') // Los meses en JavaScript son 0-indexed
+    const day = String(date.getDate()).padStart(2, '0')
+    return `${year}-${month}-${day}`
+  }
+  const currentDate = getCurrentDate()
+  const [selectedDate, setSelectedDate] = useState(currentDate)
 
   const fetchData = async () => {
     const date = { date: selectedDate }

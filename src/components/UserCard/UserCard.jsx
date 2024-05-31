@@ -46,10 +46,10 @@ const UserCard = (data) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ post_id: data.data.post_id }),
+        body: JSON.stringify({ personal_id: data.data.personal_id }),
       }
 
-      const url = 'http://localhost:3000/api/posts'
+      const url = 'http://localhost:3000/api/users'
 
       deletePost(url, requestOptions)
     } catch (e) {

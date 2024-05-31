@@ -4,30 +4,23 @@ import './TeamForm.css'
 
 const TeamForm = ({ handleSubmit }) => {
   const [color, setColor] = useState('#ffffff')
-
-  const [formData, setFormData] = useState({
-    team_name: '',
-    team_color: '',
-  })
+  const [teamName, setTeamName] = useState('')
 
   const handleChange = (e) => {
-    setFormData({
-      team_name: e.target.value,
-      team_color: color,
-    })
+    setTeamName(e.target.value)
+    console.log(teamName)
   }
 
   const onSubmit = (e) => {
     e.preventDefault()
-    setFormData({
-      team_name: formData.team_name,
+
+    const formData = {
+      team_name: teamName,
       team_color: color,
-    })
+    }
+    console.log(formData)
+
     handleSubmit(formData)
-    setFormData({
-      team_name: '',
-      team_color: '#ffffff',
-    })
   }
 
   return (
@@ -38,7 +31,7 @@ const TeamForm = ({ handleSubmit }) => {
           className='input'
           type='text'
           name='team_name'
-          value={formData.team_name}
+          value={teamName}
           onChange={handleChange}
           required
         />
