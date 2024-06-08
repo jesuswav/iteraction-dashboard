@@ -10,7 +10,8 @@ const Teams = () => {
 
   const getTeams = async () => {
     const response = await fetch(
-      'https://interaction-backend-1.onrender.com/api/teams'
+      // 'https://interaction-backend-1.onrender.com/api/teams'
+      'http://localhost:3000/api/teams'
     )
     const responseData = await response.json()
     setTeams(responseData)

@@ -12,7 +12,7 @@ const Posts = () => {
 
   const getPosts = async () => {
     const response = await fetch(
-      'https://interaction-backend-1.onrender.com/api/posts'
+      'http://localhost:3000/api/posts'
     )
     const responseData = await response.json()
     setPosts(responseData)
@@ -43,7 +43,8 @@ const Posts = () => {
         body: JSON.stringify(formData),
       }
 
-      const url = 'https://interaction-backend-1.onrender.com/api/posts'
+      // const url = 'https://interaction-backend-1.onrender.com/api/posts'
+      const url = 'http://localhost:3000/api/posts'
 
       sendData(url, requestOptions)
     } catch (e) {

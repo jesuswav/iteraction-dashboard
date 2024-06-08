@@ -44,8 +44,8 @@ const PostCard = (item) => {
     <div className='post-container'>
       <span className='first-post-container'>
         <FontAwesomeIcon icon={faFacebook} size='xl' color='gray' />
-        <p className='post-name'>{item.item.post_name}</p>
-        <p className='post-date'>{item.item?.register_date.slice(0, -14)}</p>
+        <p className='post-name'>{item.item.post_description}</p>
+        {/* <p className='post-date'>{item.item?.register_date.slice(0, -14)}</p> */}
       </span>
       {(checked && (
         <FontAwesomeIcon

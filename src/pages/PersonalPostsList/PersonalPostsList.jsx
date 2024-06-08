@@ -24,7 +24,8 @@ const PersonalPostsList = () => {
       },
       body: JSON.stringify(date),
     }
-    const url = 'https://interaction-backend-1.onrender.com/api/user_posts'
+    // const url = 'https://interaction-backend-1.onrender.com/api/user_posts'
+    const url = 'http://localhost:3000/api/user_posts'
 
     const response = await fetch(url, requestOptions)
     if (!response.ok) {
@@ -61,6 +62,7 @@ const PersonalPostsList = () => {
         </button>
       </div>
       <h3>Personal and posts</h3>
+      {console.log(postsData)}
       {postsData?.map((item, index) => (
         <div className='posts-lists' key={index}>
           <InteractionCard data={item} />
