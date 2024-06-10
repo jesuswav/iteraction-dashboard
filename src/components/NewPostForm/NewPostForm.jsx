@@ -3,7 +3,6 @@ import './NewPostForm.css'
 
 const NewPostForm = ({ handleSubmit }) => {
   const [formData, setFormData] = useState({
-    post_name: '',
     post_url: '',
   })
 
@@ -18,24 +17,12 @@ const NewPostForm = ({ handleSubmit }) => {
     e.preventDefault()
     handleSubmit(formData)
     setFormData({
-      post_name: '',
       post_url: '',
     })
   }
 
   return (
     <form className='form-container' onSubmit={onSubmit}>
-      <div className='input-container'>
-        <label className='input-label'>Post Name</label>
-        <input
-          className='input'
-          type='text'
-          name='post_name'
-          value={formData.post_name}
-          onChange={handleChange}
-          required
-        />
-      </div>
       <div className='input-container'>
         <label className='input-label'>Post URL</label>
         <input

@@ -9,18 +9,17 @@ import './Posts.css'
 
 const Posts = () => {
   const [posts, setPosts] = useState([])
+  const [newPost, setNewPost] = useState(false)
 
   const getPosts = async () => {
-    const response = await fetch(
-      'http://localhost:3000/api/posts'
-    )
+    const response = await fetch('http://localhost:3000/api/posts')
     const responseData = await response.json()
     setPosts(responseData)
   }
 
   useEffect(() => {
     getPosts()
-  }, [])
+  }, [newPost])
 
   // Logica para el modal
   const [showModal, setShowModal] = useState(false)
@@ -63,12 +62,12 @@ const Posts = () => {
     }
     const responseData = await response.json()
     console.log('Register response', responseData)
+    setNewPost(true)
   }
 
   return (
     <div className='posts-div'>
       <h3>Posts</h3>
-      {console.log(posts)}
       {posts?.map((item, index) => (
         <div key={index}>
           <PostsItemCard data={item} />

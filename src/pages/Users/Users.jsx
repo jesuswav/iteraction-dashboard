@@ -10,9 +10,7 @@ const Users = () => {
   const [users, setUsers] = useState([])
 
   const fetchUsers = async () => {
-    const response = await fetch(
-      'https://interaction-backend-1.onrender.com/api/personal'
-    )
+    const response = await fetch('http://localhost:3000/api/personal')
     const responseData = await response.json()
     setUsers(responseData)
   }
