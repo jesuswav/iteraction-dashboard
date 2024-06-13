@@ -49,7 +49,8 @@ const TeamCard = (data) => {
         body: JSON.stringify({ team_id: data.data.value }),
       }
 
-      const url = 'https://interaction-backend-1.onrender.com/api/teams'
+      // const url = 'https://interaction-backend-1.onrender.com/api/teams'
+      const url = 'http://localhost:3000/api/teams'
 
       deletePost(url, requestOptions)
     } catch (e) {
@@ -72,7 +73,11 @@ const TeamCard = (data) => {
         <FontAwesomeIcon icon={faUsers} size='2x' color={data.data.color} />
         <p>{data.data.label}</p>
       </span>
-      <span ref={buttonRef} onClick={handleMenuToggle}>
+      <span
+        ref={buttonRef}
+        onClick={handleMenuToggle}
+        className='post-options-icon'
+      >
         <FontAwesomeIcon icon={faEllipsisVertical} size='2x' color='gray' />
       </span>
       {menuOpen && (

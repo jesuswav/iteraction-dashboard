@@ -85,13 +85,12 @@ const PostsItemCard = (data) => {
           ))}
         </span>
       </div>
-      <span ref={buttonRef} className='post-options-icon'>
-        <FontAwesomeIcon
-          onClick={handleMenuToggle}
-          icon={faEllipsisVertical}
-          size='2xl'
-          color='gray'
-        />
+      <span
+        ref={buttonRef}
+        onClick={handleMenuToggle}
+        className='post-options-icon'
+      >
+        <FontAwesomeIcon icon={faEllipsisVertical} size='2xl' color='gray' />
       </span>
       {menuOpen && (
         <div ref={menuRef} className='dropdown-menu' style={menuStyle}>

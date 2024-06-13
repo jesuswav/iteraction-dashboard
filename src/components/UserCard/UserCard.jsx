@@ -78,7 +78,11 @@ const UserCard = (data) => {
       >
         <p>{data.data.team_name}</p>
       </span>
-      <span ref={buttonRef} onClick={handleMenuToggle}>
+      <span
+        ref={buttonRef}
+        onClick={handleMenuToggle}
+        className='post-options-icon'
+      >
         <FontAwesomeIcon icon={faEllipsisVertical} size='2x' color='gray' />
       </span>
       {menuOpen && (

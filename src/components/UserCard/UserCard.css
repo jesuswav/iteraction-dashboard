@@ -44,6 +44,7 @@
   text-align: left;
 }
 .user-dropdown-menu button:hover {
+  cursor: pointer;
   background: #f0f0f0;
 }
 .user-float-menu-item {
