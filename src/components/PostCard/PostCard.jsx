@@ -24,7 +24,8 @@ const PostCard = (item) => {
         body: JSON.stringify(data),
       }
 
-      const url = 'https://interaction-backend-1.onrender.com/api/posts'
+      // const url = 'https://interaction-backend-1.onrender.com/api/posts'
+      const url = 'http://localhost:3000/api/posts'
 
       sendData(url, requestOptions)
     } catch (e) {

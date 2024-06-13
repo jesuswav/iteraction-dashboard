@@ -68,21 +68,23 @@ const PostsItemCard = (data) => {
 
   return (
     <div className='post-item-container'>
-      <span className='item-firts-subcontainer'>
-        <FontAwesomeIcon icon={faFacebook} size='2xl' color='gray' />
-        <p>{data.data.post_description}</p>
-      </span>
-      <span className='item-subcontainer'>
-        {/* <p>{data.data.register_date.slice(0, -14)}</p> */}
-        {data.data.images.map((item, index) => (
-          <img
-            key={index}
-            className='post-img'
-            src={item.image_url}
-            alt='img'
-          />
-        ))}
-      </span>
+      <div className='post-content'>
+        <span className='item-firts-subcontainer'>
+          <FontAwesomeIcon icon={faFacebook} size='2xl' color='gray' />
+          <p>{data.data.post_description}</p>
+        </span>
+        <span className='item-subcontainer'>
+          {/* <p>{data.data.register_date.slice(0, -14)}</p> */}
+          {data.data.images.map((item, index) => (
+            <img
+              key={index}
+              className='post-img'
+              src={item.image_url}
+              alt='img'
+            />
+          ))}
+        </span>
+      </div>
       <span ref={buttonRef} className='post-options-icon'>
         <FontAwesomeIcon
           onClick={handleMenuToggle}

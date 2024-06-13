@@ -17,6 +17,11 @@
   font-weight: 600;
 }
 
+.post-content {
+  display: flex;
+  flex-direction: column;
+}
+
 .item-subcontainer {
   width: 100%;
   display: flex;
