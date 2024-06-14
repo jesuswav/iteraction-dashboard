@@ -8,6 +8,7 @@ import UserCard from '../../components/UserCard/UserCard'
 
 const Users = () => {
   const [users, setUsers] = useState([])
+  const [animate, setAnimate] = useState()
 
   const fetchUsers = async () => {
     const response = await fetch('http://localhost:3000/api/personal')
@@ -27,7 +28,11 @@ const Users = () => {
   }
 
   const handleCloseModal = () => {
-    setShowModal(false)
+    setAnimate(true)
+    setTimeout(() => {
+      setShowModal(false)
+      setAnimate(false)
+    }, 500)
   }
 
   const handleFormSubmit = async (formData) => {
@@ -71,7 +76,7 @@ const Users = () => {
           <UserCard data={item} />
         </div>
       ))}
-      <Modal show={showModal} handleClose={handleCloseModal}>
+      <Modal show={showModal} handleClose={handleCloseModal} animate={animate}>
         <UserForm handleSubmit={handleFormSubmit} />
       </Modal>
       <div onClick={handleOpenModal} className='add-post'>

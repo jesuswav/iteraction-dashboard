@@ -44,14 +44,16 @@ const PostCard = (item) => {
   return (
     <div className='post-container'>
       <span className='first-post-container'>
-        <FontAwesomeIcon icon={faFacebook} size='xl' color='gray' />
-        <p className='post-name'>{item.item.post_description}</p>
+        <FontAwesomeIcon icon={faFacebook} size='2x' color='gray' />
+        <p className='post-name'>
+          {item.item.post_description.substring(0, 32) + '...'}
+        </p>
         {/* <p className='post-date'>{item.item?.register_date.slice(0, -14)}</p> */}
       </span>
       {(checked && (
         <FontAwesomeIcon
           icon={faCircleCheck}
-          size='xl'
+          size='2x'
           color='blue'
           id='complete-icon'
           onClick={() => {
@@ -63,7 +65,7 @@ const PostCard = (item) => {
       )) || (
         <FontAwesomeIcon
           icon={faCircle}
-          size='xl'
+          size='2x'
           id='complete-icon'
           onClick={() => {
             updateChecked(item.item.unique_post_id, 1)

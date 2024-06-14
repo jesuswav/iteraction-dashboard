@@ -7,6 +7,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 const Teams = () => {
   const [teams, setTeams] = useState([])
+  const [animate, setAnimate] = useState()
 
   const getTeams = async () => {
     const response = await fetch(
@@ -29,7 +30,11 @@ const Teams = () => {
   }
 
   const handleCloseModal = () => {
-    setShowModal(false)
+    setAnimate(true)
+    setTimeout(() => {
+      setShowModal(false)
+      setAnimate(false)
+    }, 500)
   }
 
   const handleFormSubmit = async (formData) => {
@@ -72,7 +77,7 @@ const Teams = () => {
           <TeamCard data={item} />
         </div>
       ))}
-      <Modal show={showModal} handleClose={handleCloseModal}>
+      <Modal show={showModal} handleClose={handleCloseModal} animate={animate}>
         <TeamForm handleSubmit={handleFormSubmit} />
       </Modal>
       <div onClick={handleOpenModal} className='add-post'>

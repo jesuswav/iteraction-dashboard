@@ -27,6 +27,7 @@
   border: none;
   font-size: larger;
   text-align: center;
+  overflow: hidden;
 }
 .search-input:focus {
   outline: none;

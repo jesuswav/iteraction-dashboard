@@ -10,6 +10,7 @@ import './Posts.css'
 const Posts = () => {
   const [posts, setPosts] = useState([])
   const [newPost, setNewPost] = useState(false)
+  const [animate, setAnimate] = useState()
 
   const getPosts = async () => {
     const response = await fetch('http://localhost:3000/api/posts')
@@ -29,7 +30,11 @@ const Posts = () => {
   }
 
   const handleCloseModal = () => {
-    setShowModal(false)
+    setAnimate(true)
+    setTimeout(() => {
+      setShowModal(false)
+      setAnimate(false)
+    }, 500)
   }
 
   const handleFormSubmit = async (formData) => {
@@ -68,13 +73,13 @@ const Posts = () => {
   return (
     <div className='posts-div'>
       <h3>Posts</h3>
-      {console.log(posts)}
+      {/* {console.log(posts)} */}
       {posts?.map((item, index) => (
         <div key={index} className='posts-lists-container'>
           <PostsItemCard data={item} />
         </div>
       ))}
-      <Modal show={showModal} handleClose={handleCloseModal}>
+      <Modal show={showModal} handleClose={handleCloseModal} animate={animate}>
         <NewPostForm handleSubmit={handleFormSubmit} />
       </Modal>
       <div onClick={handleOpenModal} className='add-post'>
