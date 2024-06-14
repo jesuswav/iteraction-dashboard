@@ -68,6 +68,7 @@ const Posts = () => {
   return (
     <div className='posts-div'>
       <h3>Posts</h3>
+      {console.log(posts)}
       {posts?.map((item, index) => (
         <div key={index}>
           <PostsItemCard data={item} />

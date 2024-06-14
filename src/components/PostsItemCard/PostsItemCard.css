@@ -4,6 +4,7 @@
   justify-content: space-evenly;
   align-items: center;
   margin-top: 12px;
+  width: 100%;
 }
 .item-firts-subcontainer {
   width: 100%;
@@ -34,6 +35,11 @@
 }
 .post-options-icon:hover {
   cursor: pointer;
+}
+
+/* Styles for images */
+.post-img {
+  height: 42px;
 }
 
 /* Styles for the menu */
@@ -75,8 +81,4 @@
 .float-menu-item p {
   padding: 0px;
   margin: 0px;
-}
-
-.post-img {
-  height: 100px;
 }

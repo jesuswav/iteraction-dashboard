@@ -1,8 +1,8 @@
 .add-post {
-  background: blue;
+  background: rgba(71, 116, 230, 1);
   color: white;
-  padding: 10px 12px;
-  border-radius: 50%;
+  padding: 10px 13px;
+  border-radius: 55%;
   position: fixed;
   bottom: 82px;
   right: 12px;

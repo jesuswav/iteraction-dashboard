@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 import Multiselect from '../SelectComponent/SelectComponent'
 import './UserForm.css'
 
@@ -37,14 +39,6 @@ const UserForm = ({ handleSubmit }) => {
     getTeams()
   }, [])
 
-  const options = [
-    { value: 'equipo1', label: 'Equipo 1', color: 'blue' },
-    { value: 'equipo2', label: 'Equipo 2', color: 'green' },
-    { value: 'equipo3', label: 'Equipo 3', color: 'red' },
-    { value: 'equipo4', label: 'Equipo 4', color: 'orange' },
-    // Agrega más opciones según necesites
-  ]
-
   const handleSelectChange = (selectedOption) => {
     setSelectedOption(selectedOption)
     setFormData({
@@ -55,6 +49,13 @@ const UserForm = ({ handleSubmit }) => {
 
   return (
     <form className='form-container' onSubmit={onSubmit}>
+      <span className='span-title-form'>
+        <FontAwesomeIcon icon={faUser} size='2x' className='title-icon-form' />
+        <h4>Create a new user</h4>
+      </span>
+      <span className='span-subtitle-form'>
+        <h5>Create a new user and select his team</h5>
+      </span>
       <div className='input-container'>
         <label className='input-label'>Personal name</label>
         <input
@@ -63,10 +64,11 @@ const UserForm = ({ handleSubmit }) => {
           name='personal_name'
           value={formData.personal_name}
           onChange={handleChange}
+          placeholder='Personal name'
           required
         />
       </div>
-      <div>
+      <div className='team-multiselect'>
         <Multiselect
           options={teams}
           selectedOption={selectedOption}
@@ -74,7 +76,7 @@ const UserForm = ({ handleSubmit }) => {
         />
       </div>
       <button className='post-form-button' type='submit'>
-        Submit
+        Create
       </button>
     </form>
   )

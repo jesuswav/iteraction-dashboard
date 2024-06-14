@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './NewPostForm.css'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 const NewPostForm = ({ handleSubmit }) => {
   const [formData, setFormData] = useState({
@@ -23,6 +25,13 @@ const NewPostForm = ({ handleSubmit }) => {
 
   return (
     <form className='form-container' onSubmit={onSubmit}>
+      <span className='span-title-form'>
+        <FontAwesomeIcon icon={faUser} size='2x' className='title-icon-form' />
+        <h4>Create a new post</h4>
+      </span>
+      <span className='span-subtitle-form'>
+        <h5>Create a post to add to the personal</h5>
+      </span>
       <div className='input-container'>
         <label className='input-label'>Post URL</label>
         <input
@@ -31,11 +40,12 @@ const NewPostForm = ({ handleSubmit }) => {
           name='post_url'
           value={formData.post_url}
           onChange={handleChange}
+          placeholder='Post URL'
           required
         />
       </div>
       <button className='post-form-button' type='submit'>
-        Submit
+        Create
       </button>
     </form>
   )
