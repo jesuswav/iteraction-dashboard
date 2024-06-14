@@ -70,7 +70,7 @@ const Posts = () => {
       <h3>Posts</h3>
       {console.log(posts)}
       {posts?.map((item, index) => (
-        <div key={index}>
+        <div key={index} className='posts-lists-container'>
           <PostsItemCard data={item} />
         </div>
       ))}

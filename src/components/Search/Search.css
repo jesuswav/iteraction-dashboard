@@ -17,6 +17,8 @@
   height: 58%;
   border: 2px solid gray;
   border-radius: 26px;
+
+  box-shadow: 3px 0px 12px rgba(0, 0, 0, 0.2);
 }
 
 .search-input {

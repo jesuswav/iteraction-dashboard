@@ -7,6 +7,11 @@ import {
   faTrash,
 } from '@fortawesome/free-solid-svg-icons'
 import './PostsItemCard.css'
+import {
+  faComment,
+  faHeart,
+  faShareFromSquare,
+} from '@fortawesome/free-regular-svg-icons'
 
 const PostsItemCard = (data) => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -69,29 +74,52 @@ const PostsItemCard = (data) => {
   return (
     <div className='post-item-container'>
       <div className='post-content'>
-        <span className='item-firts-subcontainer'>
-          <FontAwesomeIcon icon={faFacebook} size='2xl' color='gray' />
-          <p>{data.data.post_description}</p>
-        </span>
-        <span className='item-subcontainer'>
-          {/* <p>{data.data.register_date.slice(0, -14)}</p> */}
-          {data.data.images.map((item, index) => (
-            <img
-              key={index}
-              className='post-img'
-              src={item.image_url}
-              alt='img'
+        <span className='post-item-header'>
+          <span className='item-firts-subcontainer'>
+            <FontAwesomeIcon icon={faFacebook} size='3x' color='gray' />
+            <span className='page-name'>
+              <p>UT Calvillo</p>
+              <p className='post-date'>02-04-2024</p>
+            </span>
+          </span>
+          <span
+            ref={buttonRef}
+            onClick={handleMenuToggle}
+            className='post-options-icon'
+          >
+            <FontAwesomeIcon
+              icon={faEllipsisVertical}
+              size='2xl'
+              color='gray'
             />
-          ))}
+          </span>
         </span>
+        <span className='post-item-content'>
+          <p>{data.data.post_description.substring(0, 52) + '...'}</p>
+          <span className='image-container'>
+            {/* <p>{data.data.register_date.slice(0, -14)}</p> */}
+            {data.data.images.map((item, index) => (
+              <div key={index} className={`box box-${index + 1}`}>
+                <img className='post-img' src={item.image_url} alt='img' />
+              </div>
+            ))}
+          </span>
+        </span>
+        <div className='post-info'>
+          <span className='post-info-item'>
+            <FontAwesomeIcon icon={faHeart} size='2x' />
+            <p>{data.data.likes}</p>
+          </span>
+          <span className='post-info-item'>
+            <FontAwesomeIcon icon={faComment} size='2x' />
+            <p>{data.data.likes}</p>
+          </span>
+          <span className='post-info-item'>
+            <FontAwesomeIcon icon={faShareFromSquare} size='2x' />
+            <p>{data.data.shared}</p>
+          </span>
+        </div>
       </div>
-      <span
-        ref={buttonRef}
-        onClick={handleMenuToggle}
-        className='post-options-icon'
-      >
-        <FontAwesomeIcon icon={faEllipsisVertical} size='2xl' color='gray' />
-      </span>
       {menuOpen && (
         <div ref={menuRef} className='dropdown-menu' style={menuStyle}>
           <span className='float-menu-item' onClick={() => handleDelete()}>
