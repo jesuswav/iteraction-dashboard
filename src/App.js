@@ -1,32 +1,15 @@
 import './App.css'
-import { Route, Routes } from 'react-router-dom'
+import { useState } from 'react'
 
-import PersonalPostsList from './pages/PersonalPostsList/PersonalPostsList'
-import Posts from './pages/Posts/Posts'
-import Teams from './pages/Teams/Teams'
-import Users from './pages/Users/Users'
-
-import ResponsiveDrawer from './components/Drawer/Drawer'
-import TabMenu from './components/TabMenu/TabMenu'
-import Search from './components/Search/Search'
+import LoggedScreens from './pages/LoggedScreens/LoggedScreens'
+import NotLoggedScreens from './pages/NotLoggedScreens/NotLoggedScreens'
 
 function App() {
+  const [loginToken, setLoginToken] = useState(false)
+
   return (
     <div className='App'>
-      <div className='search'>
-        <Search />
-      </div>
-      <div className='content'>
-        <Routes>
-          <Route path='/' element={<PersonalPostsList />} />
-          <Route path='/posts' element={<Posts />} />
-          <Route path='/teams' element={<Teams />} />
-          <Route path='/users' element={<Users />} />
-        </Routes>
-      </div>
-      <div className='tab-menu-container'>
-        <TabMenu />
-      </div>
+      {!loginToken ? <NotLoggedScreens /> : <LoggedScreens />}
     </div>
   )
 }

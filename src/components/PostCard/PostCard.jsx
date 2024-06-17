@@ -46,7 +46,7 @@ const PostCard = (item) => {
       <span className='first-post-container'>
         <FontAwesomeIcon icon={faFacebook} size='2x' color='gray' />
         <p className='post-name'>
-          {item.item.post_description.substring(0, 32) + '...'}
+          {item.item.post_description?.substring(0, 32) + '...'}
         </p>
         {/* <p className='post-date'>{item.item?.register_date.slice(0, -14)}</p> */}
       </span>

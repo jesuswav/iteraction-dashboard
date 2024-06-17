@@ -38,7 +38,7 @@
 .post-content {
   display: flex;
   flex-direction: column;
-  padding: 16px;
+  padding: 12px;
 }
 
 /* Styles for post card */
@@ -65,7 +65,7 @@
   grid-auto-rows: minmax(150px, auto);
   grid-gap: 6px;
   height: 25vh;
-  margin-bottom: 32%;
+  margin-bottom: 102px;
 }
 .box {
   overflow: hidden;
@@ -79,7 +79,7 @@
   align-items: center;
 }
 .box img {
-  height: 252px;
+  height: 402px;
 }
 .box-1 {
   grid-column: 1/3;
