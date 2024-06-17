@@ -71,6 +71,7 @@ const Users = () => {
   return (
     <div>
       <h3>Users Component</h3>
+      {console.log(users)}
       {users?.map((item, index) => (
         <div key={index}>
           <UserCard data={item} />
