@@ -10,7 +10,6 @@ import './Posts.css'
 const Posts = () => {
   const [posts, setPosts] = useState([])
   const [newPost, setNewPost] = useState(false)
-  const [animate, setAnimate] = useState()
 
   const getPosts = async () => {
     const response = await fetch('http://localhost:3000/api/posts')
@@ -24,6 +23,7 @@ const Posts = () => {
 
   // Logica para el modal
   const [showModal, setShowModal] = useState(false)
+  const [animate, setAnimate] = useState()
 
   const handleOpenModal = () => {
     setShowModal(true)
