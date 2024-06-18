@@ -5,8 +5,6 @@ import LoggedScreens from './pages/LoggedScreens/LoggedScreens'
 import NotLoggedScreens from './pages/NotLoggedScreens/NotLoggedScreens'
 
 function App() {
-  const [loginToken, setLoginToken] = useState(false)
-
   const [authState, setAuthState] = useState({
     isAuthenticated: false,
   })
