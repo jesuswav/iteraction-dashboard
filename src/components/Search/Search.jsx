@@ -25,7 +25,7 @@ const Search = () => {
   return (
     <div className='search-container'>
       <div className='search-subcontainer'>
-        <div onClick={handleOpenModal}>
+        <div onClick={handleOpenModal} className='profile-button'>
           <FontAwesomeIcon icon={faUser} size='2x' />
         </div>
         <input
