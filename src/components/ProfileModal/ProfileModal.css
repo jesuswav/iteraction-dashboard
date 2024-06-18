@@ -1,0 +1,64 @@
+.profile-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.profile-header h4 {
+  font-size: larger;
+  margin: 18px 0px 12px 0px;
+}
+
+.profile-input-container {
+  margin-top: 52px;
+}
+.profile-input-label {
+  font-size: medium;
+  font-weight: 500;
+  color: rgb(161, 161, 161);
+  margin: 0px;
+}
+.profile-input {
+  display: flex;
+  align-items: center;
+  color: gray;
+  font-size: medium;
+  height: 42px;
+  padding: 6px 16px;
+  font-weight: 600;
+  background: rgb(235, 235, 235);
+  border-radius: 12px;
+  border: none;
+  margin: 0px 0px 12px 0px;
+}
+
+.second-profile-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: end;
+  gap: 8px;
+  height: 92px;
+}
+.second-profile-container .profile-input-container {
+  width: 100%;
+}
+
+.post-profile-button {
+  width: 100%;
+  height: 42px;
+  color: white;
+  font-weight: 500;
+  font-size: larger;
+  background: rgba(71, 116, 230, 1);
+  border: none;
+  border-radius: 12px;
+  margin-top: 18px;
+  margin-bottom: 6px;
+}
+
+.post-profile-button:hover {
+  cursor: pointer;
+}
