@@ -39,10 +39,13 @@ const Teams = () => {
 
   const handleFormSubmit = async (formData) => {
     try {
+      const login_token = localStorage.getItem('loginToken')
+
       const requestOptions = {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${login_token}`,
         },
         body: JSON.stringify(formData),
       }

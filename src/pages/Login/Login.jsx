@@ -33,12 +33,15 @@ const Login = () => {
 
     const responseData = await response.json()
     console.log(responseData.token)
+
     if (responseData.token) {
       console.log('Token definido')
       localStorage.setItem('loginToken', responseData.token)
     }
 
     console.log('Response data', responseData)
+
+    window.location.reload()
   }
 
   const onChangeUsername = (e) => {
@@ -51,7 +54,6 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    window.location.reload()
     console.log('Username: ', username)
     console.log('Password: ', password)
     loginrequest({ username: username, password: password })
