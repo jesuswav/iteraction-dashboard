@@ -13,7 +13,6 @@ const Users = () => {
   const fetchUsers = async () => {
     const response = await fetch('http://localhost:3000/api/personal')
     const responseData = await response.json()
-    console.log(responseData)
     setUsers(responseData)
   }
 
@@ -38,10 +37,13 @@ const Users = () => {
 
   const handleFormSubmit = async (formData) => {
     try {
+      const loginToken = localStorage.getItem('loginToken')
+
       const requestOptions = {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${loginToken}`,
         },
         body: JSON.stringify(formData),
       }
