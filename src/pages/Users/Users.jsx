@@ -37,10 +37,13 @@ const Users = () => {
 
   const handleFormSubmit = async (formData) => {
     try {
+      const loginToken = localStorage.getItem('loginToken')
+
       const requestOptions = {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${loginToken}`,
         },
         body: JSON.stringify(formData),
       }
