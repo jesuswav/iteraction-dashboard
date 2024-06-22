@@ -4,7 +4,6 @@ const getHook = async (url, headers) => {
   if (!headers) {
     response = await fetch(url)
   } else {
-    console.log('Headers')
     response = await fetch(url, headers)
   }
 

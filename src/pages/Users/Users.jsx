@@ -13,6 +13,7 @@ const Users = () => {
   const fetchUsers = async () => {
     const response = await fetch('http://localhost:3000/api/personal')
     const responseData = await response.json()
+    console.log(responseData)
     setUsers(responseData)
   }
 
@@ -71,12 +72,12 @@ const Users = () => {
   return (
     <div>
       <h3>Users Component</h3>
-      {console.log(users)}
-      {users?.map((item, index) => (
-        <div key={index}>
-          <UserCard data={item} />
-        </div>
-      ))}
+      {(users.length > 0 &&
+        users?.map((item, index) => (
+          <div key={index}>
+            <UserCard data={item} />
+          </div>
+        ))) || <p>There are no users registered</p>}
       <Modal show={showModal} handleClose={handleCloseModal} animate={animate}>
         <UserForm handleSubmit={handleFormSubmit} />
       </Modal>

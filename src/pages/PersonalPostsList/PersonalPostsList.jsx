@@ -62,7 +62,6 @@ const PersonalPostsList = () => {
         </button>
       </div>
       <h3>Personal and posts</h3>
-      {console.log(postsData)}
       {postsData?.map((item, index) => (
         <div className='posts-lists' key={index}>
           <InteractionCard data={item} />
