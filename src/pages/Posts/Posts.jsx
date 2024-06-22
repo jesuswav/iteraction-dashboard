@@ -71,14 +71,16 @@ const Posts = () => {
   }
 
   return (
-    <div className='posts-div'>
+    <div>
       <h3>Posts</h3>
-      {/* {console.log(posts)} */}
-      {posts?.map((item, index) => (
-        <div key={index} className='posts-lists-container'>
-          <PostsItemCard data={item} />
-        </div>
-      ))}
+      {(posts.length > 0 &&
+        posts?.map((item, index) => (
+          <div className='posts-div'>
+            <div key={index} className='posts-lists-container'>
+              <PostsItemCard data={item} />
+            </div>
+          </div>
+        ))) || <p>There are no posts registered</p>}
       <Modal show={showModal} handleClose={handleCloseModal} animate={animate}>
         <NewPostForm handleSubmit={handleFormSubmit} />
       </Modal>

@@ -72,11 +72,12 @@ const Teams = () => {
   return (
     <div>
       <h3>Teams Component</h3>
-      {teams?.map((item, index) => (
-        <div key={index}>
-          <TeamCard data={item} />
-        </div>
-      ))}
+      {(teams.length > 0 &&
+        teams?.map((item, index) => (
+          <div key={index}>
+            <TeamCard data={item} />
+          </div>
+        ))) || <p>There are no Teams registered</p>}
       <Modal show={showModal} handleClose={handleCloseModal} animate={animate}>
         <TeamForm handleSubmit={handleFormSubmit} />
       </Modal>

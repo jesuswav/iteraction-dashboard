@@ -97,6 +97,7 @@ const PostsItemCard = (data) => {
         <span className='post-item-content'>
           <p>{data.data.post_description.substring(0, 52) + '...'}</p>
           <span className='image-container'>
+            {console.log(data)}
             {/* <p>{data.data.register_date.slice(0, -14)}</p> */}
             {data.data.images.map((item, index) => (
               <div key={index} className={`box box-${index + 1}`}>
