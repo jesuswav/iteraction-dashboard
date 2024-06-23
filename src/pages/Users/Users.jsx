@@ -11,7 +11,12 @@ const Users = () => {
   const [animate, setAnimate] = useState()
 
   const fetchUsers = async () => {
-    const response = await fetch('http://localhost:3000/api/personal')
+    const loginToken = localStorage.getItem('loginToken')
+
+    const response = await fetch('http://localhost:3000/api/personal', {
+      method: 'GET',
+      headers: { Authorization: `Bearer ${loginToken}` },
+    })
     const responseData = await response.json()
     setUsers(responseData)
   }

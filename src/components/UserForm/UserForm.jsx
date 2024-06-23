@@ -30,7 +30,12 @@ const UserForm = ({ handleSubmit }) => {
   }
 
   const getTeams = async () => {
-    const response = await fetch('http://localhost:3000/api/teams')
+    const loginToken = localStorage.getItem('loginToken')
+
+    const response = await fetch('http://localhost:3000/api/teams', {
+      method: 'GET',
+      headers: { Authorization: `Bearer ${loginToken}` },
+    })
     const responseData = await response.json()
     setTeams(responseData)
   }
