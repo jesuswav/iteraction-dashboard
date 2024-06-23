@@ -10,10 +10,12 @@ const Teams = () => {
   const [animate, setAnimate] = useState()
 
   const getTeams = async () => {
-    const response = await fetch(
-      // 'https://interaction-backend-1.onrender.com/api/teams'
-      'http://localhost:3000/api/teams'
-    )
+    const loginToken = localStorage.getItem('loginToken')
+
+    const response = await fetch('http://localhost:3000/api/teams', {
+      method: 'GET',
+      headers: { Authorization: `Bearer ${loginToken}` },
+    })
     const responseData = await response.json()
     setTeams(responseData)
   }

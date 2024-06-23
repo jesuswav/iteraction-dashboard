@@ -12,7 +12,12 @@ const Posts = () => {
   const [newPost, setNewPost] = useState(false)
 
   const getPosts = async () => {
-    const response = await fetch('http://localhost:3000/api/posts')
+    const loginToken = localStorage.getItem('loginToken')
+
+    const response = await fetch('http://localhost:3000/api/posts', {
+      method: 'GET',
+      headers: { Authorization: `Bearer ${loginToken}` },
+    })
     const responseData = await response.json()
     setPosts(responseData)
   }
@@ -39,10 +44,13 @@ const Posts = () => {
 
   const handleFormSubmit = async (formData) => {
     try {
+      const loginToken = localStorage.getItem('loginToken')
+
       const requestOptions = {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${loginToken}`,
         },
         body: JSON.stringify(formData),
       }
@@ -75,8 +83,8 @@ const Posts = () => {
       <h3>Posts</h3>
       {(posts.length > 0 &&
         posts?.map((item, index) => (
-          <div className='posts-div'>
-            <div key={index} className='posts-lists-container'>
+          <div key={index} className='posts-div'>
+            <div className='posts-lists-container'>
               <PostsItemCard data={item} />
             </div>
           </div>

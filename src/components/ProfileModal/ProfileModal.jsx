@@ -29,6 +29,7 @@ const ProfileModal = () => {
   const logOut = () => {
     localStorage.removeItem('loginToken')
     window.location.reload()
+    window.location.href = '/'
   }
 
   return (
