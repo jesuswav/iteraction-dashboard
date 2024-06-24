@@ -17,10 +17,13 @@ const PersonalPostsList = () => {
 
   const fetchData = async () => {
     const date = { date: selectedDate }
+    const loginToken = localStorage.getItem('loginToken')
+
     const requestOptions = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${loginToken}`,
       },
       body: JSON.stringify(date),
     }
