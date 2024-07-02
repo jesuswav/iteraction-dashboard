@@ -4,7 +4,7 @@ import InteractionCard from '../../components/InteractionCard/InteractionCard'
 import './PersonalPostsList.css'
 
 const PersonalPostsList = () => {
-  const [postsData, setPostData] = useState()
+  const [postsData, setPostData] = useState([])
   const getCurrentDate = () => {
     const date = new Date()
     const year = date.getFullYear()
@@ -16,26 +16,30 @@ const PersonalPostsList = () => {
   const [selectedDate, setSelectedDate] = useState(currentDate)
 
   const fetchData = async () => {
-    const date = { date: selectedDate }
-    const loginToken = localStorage.getItem('loginToken')
+    try {
+      const date = { date: selectedDate }
+      const loginToken = localStorage.getItem('loginToken')
 
-    const requestOptions = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${loginToken}`,
-      },
-      body: JSON.stringify(date),
-    }
-    // const url = 'https://interaction-backend-1.onrender.com/api/user_posts'
-    const url = 'http://localhost:3000/api/user_posts'
+      const requestOptions = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${loginToken}`,
+        },
+        body: JSON.stringify(date),
+      }
+      // const url = 'https://interaction-backend-1.onrender.com/api/user_posts'
+      const url = 'http://localhost:3000/api/user_posts'
 
-    const response = await fetch(url, requestOptions)
-    if (!response.ok) {
-      throw new Error('Error al realizar la solicitud')
+      const response = await fetch(url, requestOptions)
+      if (!response.ok) {
+        throw new Error('Error al realizar la solicitud')
+      }
+      const responseData = await response.json()
+      setPostData(responseData)
+    } catch (e) {
+      console.log('Error fetching data. ', e)
     }
-    const responseData = await response.json()
-    setPostData(responseData)
   }
 
   useEffect(() => {
@@ -65,11 +69,12 @@ const PersonalPostsList = () => {
         </button>
       </div>
       <h3>Personal and posts</h3>
-      {postsData?.map((item, index) => (
-        <div className='posts-lists' key={index}>
-          <InteractionCard data={item} />
-        </div>
-      ))}
+      {(postsData.length > 0 &&
+        postsData?.map((item, index) => (
+          <div className='posts-lists' key={index}>
+            <InteractionCard data={item} />
+          </div>
+        ))) || <p>There are no posts registered</p>}
     </div>
   )
 }

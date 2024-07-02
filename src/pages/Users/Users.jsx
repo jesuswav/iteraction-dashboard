@@ -8,6 +8,7 @@ import UserCard from '../../components/UserCard/UserCard'
 
 const Users = () => {
   const [users, setUsers] = useState([])
+  const [newUser, setNewUser] = useState(false)
   const [animate, setAnimate] = useState()
 
   const fetchUsers = async () => {
@@ -23,7 +24,7 @@ const Users = () => {
 
   useEffect(() => {
     fetchUsers()
-  }, [])
+  }, [newUser])
 
   // Logica para el modal
   const [showModal, setShowModal] = useState(false)
@@ -74,6 +75,7 @@ const Users = () => {
     }
     const responseData = await response.json()
     console.log('Register response', responseData)
+    setNewUser(true)
   }
 
   return (

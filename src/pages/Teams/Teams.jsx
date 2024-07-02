@@ -7,6 +7,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 const Teams = () => {
   const [teams, setTeams] = useState([])
+  const [newTeam, setNewTeam] = useState(false)
   const [animate, setAnimate] = useState()
 
   const getTeams = async () => {
@@ -22,7 +23,7 @@ const Teams = () => {
 
   useEffect(() => {
     getTeams()
-  }, [])
+  }, [newTeam])
 
   // Logica para el modal
   const [showModal, setShowModal] = useState(false)
@@ -72,6 +73,7 @@ const Teams = () => {
     }
     const responseData = await response.json()
     console.log('Register response', responseData)
+    setNewTeam(true)
   }
 
   return (
