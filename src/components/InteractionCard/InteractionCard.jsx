@@ -9,6 +9,8 @@ import PostCard from '../PostCard/PostCard'
 const InteractionCard = (data) => {
   const [visiblePosts, setVisiblePosts] = useState('non-visible')
 
+  console.log(data)
+
   return (
     <div>
       <span
@@ -41,7 +43,7 @@ const InteractionCard = (data) => {
       </span>
       <div className={`posts-container ${visiblePosts}`}>
         {data.data.posts.map((item, index) => (
-          <PostCard key={index} item={item} />
+          <PostCard key={index} item={item} data={data.data} />
         ))}
       </div>
       <div></div>

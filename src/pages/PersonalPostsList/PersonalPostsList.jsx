@@ -37,6 +37,8 @@ const PersonalPostsList = () => {
       }
       const responseData = await response.json()
       setPostData(responseData)
+
+      // console.log('Posts data: ', postsData)
     } catch (e) {
       console.log('Error fetching data. ', e)
     }
@@ -69,6 +71,7 @@ const PersonalPostsList = () => {
         </button>
       </div>
       <h3>Personal and posts</h3>
+      {/* {console.log(postsData)} */}
       {(postsData.length > 0 &&
         postsData?.map((item, index) => (
           <div className='posts-lists' key={index}>

@@ -5,7 +5,7 @@ import { faCircle } from '@fortawesome/free-regular-svg-icons'
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 import './PostCard.css'
 
-const PostCard = (item) => {
+const PostCard = (item, data) => {
   const [checked, setChecked] = useState(item.item.checked)
   const date = new Date()
 
@@ -39,6 +39,21 @@ const PostCard = (item) => {
       throw new Error('Error al realizar la petición')
     }
     const responseData = await response.json()
+  }
+
+  console.log(item.data.personal_name)
+  console.log(item.item.likes)
+
+  const names = item.item.likes
+
+  const nameToSearch = item.data.personal_name
+
+  const namesArray = names.split(',').map((name) => name.trim())
+
+  if (namesArray.includes(nameToSearch)) {
+    console.log(`El nombre "${nameToSearch}" se encuentra en la lista.`)
+  } else {
+    console.log(`El nombre "${nameToSearch}" no se encuentra en la lista.`)
   }
 
   return (

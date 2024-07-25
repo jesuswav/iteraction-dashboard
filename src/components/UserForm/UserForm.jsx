@@ -73,6 +73,18 @@ const UserForm = ({ handleSubmit }) => {
           required
         />
       </div>
+      {/* <div className='input-container'>
+        <label className='input-label'>Personal phone number</label>
+        <input
+          className='input'
+          type='number'
+          name='personal_name'
+          value={formData.personal_name}
+          onChange={handleChange}
+          placeholder='Phone number'
+          required
+        />
+      </div> */}
       <div className='team-multiselect'>
         <Multiselect
           options={teams}

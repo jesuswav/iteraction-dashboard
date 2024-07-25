@@ -43,8 +43,8 @@ function App() {
 
   return (
     <div className='App'>
-      {/* {authState.isAuthenticated ? <LoggedScreens /> : <NotLoggedScreens />} */}
-      <LoggedScreens />
+      {authState.isAuthenticated ? <LoggedScreens /> : <NotLoggedScreens />}
+      {/* <LoggedScreens /> */}
     </div>
   )
 }
