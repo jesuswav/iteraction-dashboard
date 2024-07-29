@@ -1,5 +1,6 @@
-import './App.css'
 import { useState, useEffect } from 'react'
+import './App.css'
+import { PostsProvider } from './context'
 
 import LoggedScreens from './pages/LoggedScreens/LoggedScreens'
 import NotLoggedScreens from './pages/NotLoggedScreens/NotLoggedScreens'
@@ -43,8 +44,10 @@ function App() {
 
   return (
     <div className='App'>
-      {authState.isAuthenticated ? <LoggedScreens /> : <NotLoggedScreens />}
-      {/* <LoggedScreens /> */}
+      <PostsProvider>
+        {authState.isAuthenticated ? <LoggedScreens /> : <NotLoggedScreens />}
+        {/* <LoggedScreens /> */}
+      </PostsProvider>
     </div>
   )
 }

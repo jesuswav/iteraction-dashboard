@@ -41,20 +41,21 @@ const PostCard = (item, data) => {
     const responseData = await response.json()
   }
 
-  console.log(item.data.personal_name)
-  console.log(item.item.likes)
+  useEffect(() => {
+    const names = item.item.likes
 
-  const names = item.item.likes
+    const nameToSearch = item.data.personal_name
 
-  const nameToSearch = item.data.personal_name
+    const namesArray = names.split(',').map((name) => name.trim())
 
-  const namesArray = names.split(',').map((name) => name.trim())
-
-  if (namesArray.includes(nameToSearch)) {
-    console.log(`El nombre "${nameToSearch}" se encuentra en la lista.`)
-  } else {
-    console.log(`El nombre "${nameToSearch}" no se encuentra en la lista.`)
-  }
+    if (namesArray.includes(nameToSearch)) {
+      setChecked(true)
+      console.log(`El nombre "${nameToSearch}" se encuentra en la lista.`)
+    } else {
+      setChecked(false)
+      console.log(`El nombre "${nameToSearch}" no se encuentra en la lista.`)
+    }
+  }, [])
 
   return (
     <div className='post-container'>
@@ -71,22 +72,22 @@ const PostCard = (item, data) => {
           size='2x'
           color='blue'
           id='complete-icon'
-          onClick={() => {
-            updateChecked(item.item.unique_post_id, 0)
-            item.item.checked = 0
-            setChecked(0)
-          }}
+          // onClick={() => {
+          //   updateChecked(item.item.unique_post_id, 0)
+          //   item.item.checked = 0
+          //   setChecked(0)
+          // }}
         />
       )) || (
         <FontAwesomeIcon
           icon={faCircle}
           size='2x'
           id='complete-icon'
-          onClick={() => {
-            updateChecked(item.item.unique_post_id, 1)
-            item.item.checked = 1
-            setChecked(1)
-          }}
+          // onClick={() => {
+          //   updateChecked(item.item.unique_post_id, 1)
+          //   item.item.checked = 1
+          //   setChecked(1)
+          // }}
         />
       )}
     </div>

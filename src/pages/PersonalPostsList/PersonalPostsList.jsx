@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
+import { PostContext } from '../../context'
 import InteractionCard from '../../components/InteractionCard/InteractionCard'
 
 import './PersonalPostsList.css'
 
 const PersonalPostsList = () => {
+  // From context
+  const { estado, setEstado } = React.useContext(PostContext)
+
   const [postsData, setPostData] = useState([])
   const getCurrentDate = () => {
     const date = new Date()
@@ -58,6 +62,7 @@ const PersonalPostsList = () => {
 
   return (
     <div>
+      <label>{estado}</label>
       <div className='filter-container'>
         <input
           type='date'
