@@ -10,7 +10,6 @@ const TeamForm = ({ handleSubmit }) => {
 
   const handleChange = (e) => {
     setTeamName(e.target.value)
-    console.log(teamName)
   }
 
   const onSubmit = (e) => {

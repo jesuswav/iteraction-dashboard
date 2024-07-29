@@ -1,11 +1,15 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faSearch } from '@fortawesome/free-solid-svg-icons'
 import Modal from '../Modal/Modal'
 import ProfileModal from '../ProfileModal/ProfileModal'
+import { PostContext } from '../../context'
 import './Search.css'
 
 const Search = () => {
+  // From context
+  const { estado, setEstado } = React.useContext(PostContext)
+  console.log('Estado desde el sarch: ', estado)
   // Logica para el modal
   const [showModal, setShowModal] = useState()
   const [animate, setAnimate] = useState()
@@ -22,6 +26,10 @@ const Search = () => {
     }, 500)
   }
 
+  const handleChange = (e) => {
+    setEstado(e.target.value)
+  }
+
   return (
     <div className='search-container'>
       <div className='search-subcontainer'>
@@ -32,6 +40,8 @@ const Search = () => {
           className='search-input'
           type='text'
           placeholder='Busca tu nombre'
+          value={estado}
+          onChange={handleChange}
         />
         <FontAwesomeIcon icon={faSearch} size='2x' />
       </div>
