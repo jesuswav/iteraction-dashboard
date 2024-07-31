@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faSearch } from '@fortawesome/free-solid-svg-icons'
 import Modal from '../Modal/Modal'
@@ -9,10 +9,25 @@ import './Search.css'
 const Search = () => {
   // From context
   const { estado, setEstado } = React.useContext(PostContext)
-  console.log('Estado desde el sarch: ', estado)
+  const { filteredPosts, setFilteredPosts } = React.useContext(PostContext)
+  const { notFilteredPosts, setNotFilteredPosts } =
+    React.useContext(PostContext)
+  const { postsData, setPostsData } = React.useContext(PostContext)
+
+  console.log('Filtered posts / : ', postsData)
   // Logica para el modal
   const [showModal, setShowModal] = useState()
   const [animate, setAnimate] = useState()
+
+  function filterByName(personal, name) {
+    return personal.filter((item) => item.personal_name === name)
+  }
+
+  useEffect(() => {
+    setFilteredPosts(filterByName(postsData, estado))
+  }, [estado])
+
+  console.log('Estoooooooo', filteredPosts)
 
   const handleOpenModal = () => {
     setShowModal(true)

@@ -7,8 +7,12 @@ import './PersonalPostsList.css'
 const PersonalPostsList = () => {
   // From context
   const { estado, setEstado } = React.useContext(PostContext)
+  const { filteredPosts, setFilteredPosts } = React.useContext(PostContext)
+  const { notFilteredPosts, setNotFilteredPosts } =
+    React.useContext(PostContext)
 
-  const [postsData, setPostData] = useState([])
+  const { postsData, setPostsData } = React.useContext(PostContext)
+
   const getCurrentDate = () => {
     const date = new Date()
     const year = date.getFullYear()
@@ -40,7 +44,7 @@ const PersonalPostsList = () => {
         throw new Error('Error al realizar la solicitud')
       }
       const responseData = await response.json()
-      setPostData(responseData)
+      setPostsData(responseData)
 
       // console.log('Posts data: ', postsData)
     } catch (e) {
@@ -62,7 +66,6 @@ const PersonalPostsList = () => {
 
   return (
     <div>
-      <label>{estado}</label>
       <div className='filter-container'>
         <input
           type='date'
@@ -76,13 +79,47 @@ const PersonalPostsList = () => {
         </button>
       </div>
       <h3>Personal and posts</h3>
-      {/* {console.log(postsData)} */}
-      {(postsData.length > 0 &&
-        postsData?.map((item, index) => (
+      {/* {!notFilteredPosts && <p>No posts for that search.</p>} */}
+      {filteredPosts.length > 0 &&
+        filteredPosts?.map((item, index) => (
           <div className='posts-lists' key={index}>
             <InteractionCard data={item} />
           </div>
-        ))) || <p>There are no posts registered</p>}
+        ))}
+      {postsData.length > 0 &&
+        filteredPosts.length === 0 &&
+        postsData.map((item, index) => (
+          <div className='posts-lists' key={index}>
+            <InteractionCard data={item} />
+          </div>
+        ))}
+      {/* {
+        // Resultados de posts filtrados
+        filteredPosts.length > 0 &&
+          notFilteredPosts &&
+          filteredPosts?.map((item, index) => (
+            <div className='posts-lists' key={index}>
+              <InteractionCard data={item} />
+            </div>
+          ))
+      }
+      {
+        // Verificar que ambos postsData y filteredPosts tengan elementos
+        postsData.length > 0 && notFilteredPosts && (
+          <>
+            {postsData.map((item, index) => (
+              <div className='posts-lists' key={index}>
+                <InteractionCard data={item} />
+              </div>
+            ))}
+            {filteredPosts.map((item, index) => (
+              <div className='filtered-posts-lists' key={index}>
+                <InteractionCard data={item} />
+              </div>
+            ))}
+          </>
+        )
+      } */}
     </div>
   )
 }
