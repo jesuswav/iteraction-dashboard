@@ -1,15 +1,24 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './InteractionCard.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faChevronDown, faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons'
 
 import PostCard from '../PostCard/PostCard'
 
 const InteractionCard = (data) => {
   const [visiblePosts, setVisiblePosts] = useState('non-visible')
+  const [checkedPosts, setCheckedPosts] = useState()
 
-  console.log(data)
+  console.log(data.data)
+
+  let checkedCount = 0
+
+  data.data.posts.map((item) => {
+    if (item.checked) {
+      checkedCount++
+    }
+  })
 
   return (
     <div>
@@ -39,7 +48,11 @@ const InteractionCard = (data) => {
         >
           <p>{data.data.personal_team}</p>
         </span>
-        <FontAwesomeIcon icon={faTriangleExclamation} size='xl' color='red' />
+        {(checkedCount === data.data.posts.length && (
+          <FontAwesomeIcon icon={faCircleCheck} size='xl' color='green' />
+        )) || (
+          <FontAwesomeIcon icon={faTriangleExclamation} size='xl' color='red' />
+        )}
       </span>
       <div className={`posts-container ${visiblePosts}`}>
         {data.data.posts.map((item, index) => (
