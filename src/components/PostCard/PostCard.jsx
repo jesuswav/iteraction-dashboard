@@ -51,10 +51,8 @@ const PostCard = (item, data) => {
     if (namesArray.includes(nameToSearch)) {
       setChecked(true)
       updateChecked(item.item.unique_post_id, 1)
-      console.log(`El nombre "${nameToSearch}" se encuentra en la lista.`)
     } else {
       setChecked(false)
-      console.log(`El nombre "${nameToSearch}" no se encuentra en la lista.`)
     }
   }, [])
 

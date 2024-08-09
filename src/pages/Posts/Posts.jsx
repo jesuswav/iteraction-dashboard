@@ -81,7 +81,6 @@ const Posts = () => {
   return (
     <div>
       <h3>Posts</h3>
-      {console.log(posts)}
       {(posts.length > 0 &&
         posts?.map((item, index) => (
           <div key={index} className='posts-div'>
