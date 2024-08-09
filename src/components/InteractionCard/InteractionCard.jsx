@@ -10,8 +10,6 @@ const InteractionCard = (data) => {
   const [visiblePosts, setVisiblePosts] = useState('non-visible')
   const [checkedPosts, setCheckedPosts] = useState()
 
-  console.log(data.data)
-
   let checkedCount = 0
 
   data.data.posts.map((item) => {

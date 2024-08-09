@@ -79,8 +79,6 @@ const PersonalPostsList = () => {
         </button>
       </div>
       <h3>Personal and posts</h3>
-      {console.log(postsData)}
-      {/* {!notFilteredPosts && <p>No posts for that search.</p>} */}
       {filteredPosts.length > 0 &&
         filteredPosts?.map((item, index) => (
           <div className='posts-lists' key={index}>

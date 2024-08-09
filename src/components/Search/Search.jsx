@@ -10,11 +10,8 @@ const Search = () => {
   // From context
   const { estado, setEstado } = React.useContext(PostContext)
   const { filteredPosts, setFilteredPosts } = React.useContext(PostContext)
-  const { notFilteredPosts, setNotFilteredPosts } =
-    React.useContext(PostContext)
   const { postsData, setPostsData } = React.useContext(PostContext)
 
-  console.log('Filtered posts / : ', postsData)
   // Logica para el modal
   const [showModal, setShowModal] = useState()
   const [animate, setAnimate] = useState()
@@ -26,8 +23,6 @@ const Search = () => {
   useEffect(() => {
     setFilteredPosts(filterByName(postsData, estado))
   }, [estado])
-
-  console.log('Estoooooooo', filteredPosts)
 
   const handleOpenModal = () => {
     setShowModal(true)
@@ -44,6 +39,29 @@ const Search = () => {
   const handleChange = (e) => {
     setEstado(e.target.value)
   }
+
+  // Search request to the api
+  const [posts, setPosts] = useState()
+
+  const getPosts = async (searchValue) => {
+    const loginToken = localStorage.getItem('loginToken')
+    const data = { search: searchValue }
+
+    const response = await fetch('http://localhost:3000/api/search', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${loginToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    const responseData = await response.json()
+    setFilteredPosts(responseData)
+  }
+
+  useEffect(() => {
+    getPosts(estado)
+  }, [estado])
 
   return (
     <div className='search-container'>
