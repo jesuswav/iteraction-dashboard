@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook } from '@fortawesome/free-brands-svg-icons'
 import {
   faEllipsisVertical,
-  faPenToSquare,
+  faRotateRight,
   faTrash,
 } from '@fortawesome/free-solid-svg-icons'
 import './PostsItemCard.css'
@@ -20,7 +20,6 @@ const PostsItemCard = (data) => {
   const [menuStyle, setMenuStyle] = useState({})
 
   const handleMenuToggle = () => {
-    console.log(data.data.post_id)
     setMenuOpen(!menuOpen)
     if (buttonRef.current) {
       const rect = buttonRef.current.getBoundingClientRect()
@@ -97,8 +96,6 @@ const PostsItemCard = (data) => {
         <span className='post-item-content'>
           <p>{data.data.post_description.substring(0, 52) + '...'}</p>
           <span className='image-container'>
-            {console.log(data)}
-            {/* <p>{data.data.register_date.slice(0, -14)}</p> */}
             {data.data.images.map((item, index) => (
               <div key={index} className={`box box-${index + 1}`}>
                 <img className='post-img' src={item.image_url} alt='img' />
@@ -124,8 +121,8 @@ const PostsItemCard = (data) => {
       {menuOpen && (
         <div ref={menuRef} className='dropdown-menu' style={menuStyle}>
           <span className='float-menu-item' onClick={() => handleDelete()}>
-            <FontAwesomeIcon icon={faPenToSquare} />
-            <p>Editar</p>
+            <FontAwesomeIcon icon={faRotateRight} />
+            <p>Actualizar</p>
           </span>
           <span className='float-menu-item' onClick={() => handleDelete()}>
             <FontAwesomeIcon icon={faTrash} />
