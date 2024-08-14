@@ -46,9 +46,9 @@ const PostCard = (item, data) => {
 
     const nameToSearch = item.data.personal_name
 
-    const namesArray = names.split(',').map((name) => name.trim())
+    const namesArray = names?.split(',').map((name) => name.trim())
 
-    if (namesArray.includes(nameToSearch)) {
+    if (namesArray?.includes(nameToSearch)) {
       setChecked(true)
       updateChecked(item.item.unique_post_id, 1)
     } else {

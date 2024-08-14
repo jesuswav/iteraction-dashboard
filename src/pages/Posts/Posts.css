@@ -1,8 +1,12 @@
+.posts-grid-container {
+  padding-bottom: 152px;
+}
+
 .posts-div {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: 152px;
+  /* padding-bottom: 152px; */
 }
 
 .posts-lists-container {
