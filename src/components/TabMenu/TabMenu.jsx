@@ -10,7 +10,7 @@ import {
 
 const navigation = [
   {
-    name: 'PostsList',
+    name: 'Lista de posts',
     url: '',
     icon: <FontAwesomeIcon icon={faList} size='2x' color='gray' />,
   },
@@ -20,12 +20,12 @@ const navigation = [
     icon: <FontAwesomeIcon icon={faSignsPost} size='2x' color='gray' />,
   },
   {
-    name: 'Teams',
+    name: 'Sublideres',
     url: 'teams',
     icon: <FontAwesomeIcon icon={faBriefcase} size='2x' color='gray' />,
   },
   {
-    name: 'Users',
+    name: 'Personal',
     url: 'users',
     icon: <FontAwesomeIcon icon={faUsers} size='2x' color='gray' />,
   },

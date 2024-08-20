@@ -6,12 +6,15 @@ import {
   faRotateRight,
   faTrash,
 } from '@fortawesome/free-solid-svg-icons'
-import './PostsItemCard.css'
 import {
   faComment,
   faHeart,
   faShareFromSquare,
 } from '@fortawesome/free-regular-svg-icons'
+import './PostsItemCard.css'
+
+// Hooks
+import useApi from '../../hooks/useApi'
 
 const PostsItemCard = (data) => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -61,6 +64,31 @@ const PostsItemCard = (data) => {
     }
   }
 
+  const { fetchData, loading, error } = useApi()
+
+  // Funcion para actualizar los valores de un post
+  const handleUpdate = async () => {
+    setMenuOpen(false)
+
+    const updateUrl = {
+      post_url: data.data.post_url,
+    }
+
+    console.log(data.data.post_url)
+
+    const response = await fetchData(
+      'POST',
+      'http://localhost:3000/api/update-post',
+      updateUrl
+    )
+
+    console.log(response)
+  }
+
+  const imprimir = () => {
+    console.log(data.data)
+  }
+
   const deletePost = async (url, requestOptions) => {
     const response = await fetch(url, requestOptions)
     if (!response.ok) {
@@ -78,7 +106,7 @@ const PostsItemCard = (data) => {
             <FontAwesomeIcon icon={faFacebook} size='3x' color='gray' />
             <span className='page-name'>
               <p>UT Calvillo</p>
-              <p className='post-date'>02-04-2024</p>
+              <p className='post-date'>{data.data.register_date}</p>
             </span>
           </span>
           <span
@@ -120,11 +148,11 @@ const PostsItemCard = (data) => {
       </div>
       {menuOpen && (
         <div ref={menuRef} className='dropdown-menu' style={menuStyle}>
-          <span className='float-menu-item' onClick={() => handleDelete()}>
+          <span className='float-menu-item' onClick={() => handleUpdate()}>
             <FontAwesomeIcon icon={faRotateRight} />
             <p>Actualizar</p>
           </span>
-          <span className='float-menu-item' onClick={() => handleDelete()}>
+          <span className='float-menu-item' onClick={() => imprimir()}>
             <FontAwesomeIcon icon={faTrash} />
             <p>Eliminar</p>
           </span>

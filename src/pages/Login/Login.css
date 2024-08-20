@@ -6,17 +6,42 @@
   justify-content: space-between;
 }
 
+.login-second-container {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .title-login-container {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
   margin-top: 152px;
 }
+.title-login-container h4 {}
+
+.login-logo {
+  margin-top: 22px;
+  height: 122px;
+}
+
+.form-login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+}
 
 .main-input-container {
   margin-top: 52px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .button-login-container {

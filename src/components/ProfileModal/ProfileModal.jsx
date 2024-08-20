@@ -35,16 +35,16 @@ const ProfileModal = () => {
   return (
     <div>
       <span className='profile-header'>
-        <FontAwesomeIcon icon={faUser} />
-        <h4>Profile</h4>
+        <FontAwesomeIcon icon={faUser} size='2x' />
+        <h4>Perfil del líder</h4>
       </span>
       <div>
         <span>
-          <p className='profile-input-label'>Name</p>
+          <p className='profile-input-label'>Nombre</p>
           <p className='profile-input'>{userInfo[0]?.name}</p>
         </span>
         <span className='profile-input-container'>
-          <p className='profile-input-label'>Last name</p>
+          <p className='profile-input-label'>Apellido</p>
           <p className='profile-input'>{userInfo[0]?.last_name}</p>
         </span>
         <div className='second-profile-container'>
@@ -53,13 +53,13 @@ const ProfileModal = () => {
             <p className='profile-input'>{userInfo[0]?.username}</p>
           </span>
           <span className='profile-input-container'>
-            <p className='profile-input-label'>Phone</p>
+            <p className='profile-input-label'>Teléfono</p>
             <p className='profile-input'>449 105 8256</p>
           </span>
         </div>
       </div>
       <button className='post-profile-button' onClick={logOut}>
-        Log out
+        Cerrar sesión
       </button>
     </div>
   )
