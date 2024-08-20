@@ -61,15 +61,20 @@ const Login = () => {
 
   return (
     <div className='login-container'>
-      <div>
+      <div className='login-second-container'>
         <div className='title-login-container'>
-          <h3>Welcome Back</h3>
+          <h2>¡Bienvenido de nuevo!</h2>
+          <img
+            src='/assets/NETWORK_FACE_Compressed.png'
+            alt='img'
+            className='login-logo'
+          />
         </div>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} className='form-login-container'>
           <div className='main-input-container'>
             <span className='input-container'>
               <label className='input-label' htmlFor=''>
-                Username
+                Nombre del lider
               </label>
               <input
                 className='input'
@@ -83,7 +88,7 @@ const Login = () => {
             </span>
             <span className='input-container'>
               <label className='input-label' htmlFor=''>
-                Password
+                Contraseña
               </label>
               <input
                 className='input'
@@ -97,14 +102,14 @@ const Login = () => {
             </span>
           </div>
           <div className='button-login-container'>
-            <button className='post-form-button'>Log in</button>
+            <button className='post-form-button'>Iniciar sesión</button>
           </div>
         </form>
       </div>
       <span className='login-footer'>
-        <p className='footer-text'>Don't have an account?</p>
+        <p className='footer-text'>¿No tienes una cuenta?</p>
         <a href='./register'>
-          <p className='sing-in'>Sing in.</p>
+          <p className='sing-in'>Registrate</p>
         </a>
       </span>
     </div>
