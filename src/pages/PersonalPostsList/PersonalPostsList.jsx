@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { PostContext } from '../../context'
 import InteractionCard from '../../components/InteractionCard/InteractionCard'
+import SubleaderCard from '../../components/SubleaderCard/SubleaderCard'
 
 import './PersonalPostsList.css'
 
@@ -78,8 +79,8 @@ const PersonalPostsList = () => {
           Filtrar
         </button>
       </div>
-      <h3>Personal and posts</h3>
-      {filteredPosts.length > 0 &&
+      <h3>Sub líderes</h3>
+      {/* {filteredPosts.length > 0 &&
         filteredPosts?.map((item, index) => (
           <div className='posts-lists' key={index}>
             <InteractionCard data={item} />
@@ -91,34 +92,13 @@ const PersonalPostsList = () => {
           <div className='posts-lists' key={index}>
             <InteractionCard data={item} />
           </div>
+        ))} */}
+      {postsData.length > 0 &&
+        postsData.map((item, index) => (
+          <div key={index}>
+            <SubleaderCard data={item} />
+          </div>
         ))}
-      {/* {
-        // Resultados de posts filtrados
-        filteredPosts.length > 0 &&
-          notFilteredPosts &&
-          filteredPosts?.map((item, index) => (
-            <div className='posts-lists' key={index}>
-              <InteractionCard data={item} />
-            </div>
-          ))
-      }
-      {
-        // Verificar que ambos postsData y filteredPosts tengan elementos
-        postsData.length > 0 && notFilteredPosts && (
-          <>
-            {postsData.map((item, index) => (
-              <div className='posts-lists' key={index}>
-                <InteractionCard data={item} />
-              </div>
-            ))}
-            {filteredPosts.map((item, index) => (
-              <div className='filtered-posts-lists' key={index}>
-                <InteractionCard data={item} />
-              </div>
-            ))}
-          </>
-        )
-      } */}
     </div>
   )
 }

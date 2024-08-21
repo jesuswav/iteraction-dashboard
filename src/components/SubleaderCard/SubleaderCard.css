@@ -1,0 +1,16 @@
+.subleader-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+}
+
+.subleader-item:hover {
+  cursor: pointer;
+}
+
+.leader_name {
+  font-size: larger;
+  font-weight: 600;
+}
