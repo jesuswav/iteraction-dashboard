@@ -80,25 +80,25 @@ const PersonalPostsList = () => {
         </button>
       </div>
       <h3>Sub líderes</h3>
-      {/* {filteredPosts.length > 0 &&
+      {filteredPosts.length > 0 &&
         filteredPosts?.map((item, index) => (
-          <div className='posts-lists' key={index}>
-            <InteractionCard data={item} />
+          <div key={index}>
+            <SubleaderCard data={item} />
           </div>
         ))}
       {postsData.length > 0 &&
         filteredPosts.length === 0 &&
         postsData.map((item, index) => (
-          <div className='posts-lists' key={index}>
-            <InteractionCard data={item} />
-          </div>
-        ))} */}
-      {postsData.length > 0 &&
-        postsData.map((item, index) => (
           <div key={index}>
             <SubleaderCard data={item} />
           </div>
         ))}
+      {/* {postsData.length > 0 &&
+        postsData.map((item, index) => (
+          <div key={index}>
+            <SubleaderCard data={item} />
+          </div>
+        ))} */}
     </div>
   )
 }
