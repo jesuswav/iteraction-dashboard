@@ -41,7 +41,6 @@ const SubleaderCard = ({ data }) => {
         ></span>
         <p className='leader_name'>{data.team_name}</p>
       </span>
-      {console.log(data.members)}
       <div className={`posts-container ${visiblePosts}`}>
         {data.members.map((item, index) => (
           <div className='posts-lists' key={index}>
