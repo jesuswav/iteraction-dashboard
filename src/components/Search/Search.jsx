@@ -16,14 +16,6 @@ const Search = () => {
   const [showModal, setShowModal] = useState()
   const [animate, setAnimate] = useState()
 
-  function filterByName(personal, name) {
-    return personal.filter((item) => item.personal_name === name)
-  }
-
-  useEffect(() => {
-    setFilteredPosts(filterByName(postsData, estado))
-  }, [estado])
-
   const handleOpenModal = () => {
     setShowModal(true)
   }
@@ -40,9 +32,6 @@ const Search = () => {
     setEstado(e.target.value)
   }
 
-  // Search request to the api
-  const [posts, setPosts] = useState()
-
   const getPosts = async (searchValue) => {
     const loginToken = localStorage.getItem('loginToken')
     const data = { search: searchValue }
@@ -57,10 +46,15 @@ const Search = () => {
     })
     const responseData = await response.json()
     setFilteredPosts(responseData)
+    // return responseData
   }
 
   useEffect(() => {
-    getPosts(estado)
+    const timeOutId = setTimeout(() => {
+      getPosts(estado)
+    }, 1000)
+
+    return () => clearTimeout(timeOutId)
   }, [estado])
 
   return (

@@ -21,3 +21,9 @@
 .post-container #complete-icon:hover {
   cursor: pointer;
 }
+
+.interaction-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+}
