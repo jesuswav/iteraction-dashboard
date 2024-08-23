@@ -25,35 +25,6 @@ const PersonalPostsList = () => {
   const currentDate = getCurrentDate()
   const [selectedDate, setSelectedDate] = useState(currentDate)
 
-  // const fetchData = async () => {
-  //   try {
-  //     const date = { date: selectedDate }
-  //     const loginToken = localStorage.getItem('loginToken')
-
-  //     const requestOptions = {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         Authorization: `Bearer ${loginToken}`,
-  //       },
-  //       body: JSON.stringify(date),
-  //     }
-  //     // const url = 'https://interaction-backend-1.onrender.com/api/user_posts'
-  //     const url = 'http://localhost:3000/api/user_posts'
-
-  //     const response = await fetch(url, requestOptions)
-  //     if (!response.ok) {
-  //       throw new Error('Error al realizar la solicitud')
-  //     }
-  //     const responseData = await response.json()
-  //     setPostsData(responseData)
-
-  //     // console.log('Posts data: ', postsData)
-  //   } catch (e) {
-  //     console.log('Error fetching data. ', e)
-  //   }
-  // }
-
   const { fetchData, loading, error } = useApi()
 
   useEffect(() => {
@@ -77,6 +48,28 @@ const PersonalPostsList = () => {
     fetchData()
   }
 
+  if (loading) {
+    return (
+      <div className='main-posts-lists-container'>
+        <div className='filter-container'>
+          <input
+            type='date'
+            name='date'
+            id='date'
+            value={selectedDate}
+            onChange={handleDateChange}
+          />
+          <button className='date-button'>
+            Filtrar
+          </button>
+        </div>
+        <div>
+          <p>Cargando...</p>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className='main-posts-lists-container'>
       <div className='filter-container'>
@@ -92,6 +85,7 @@ const PersonalPostsList = () => {
         </button>
       </div>
       <h3>Sub líderes</h3>
+      {loading && <p>Cargando...</p>}
       {filteredPosts.length === 0 && <p>No existen coincidencias</p>}
       {postsData.length > 0 &&
         filteredPosts.message &&
