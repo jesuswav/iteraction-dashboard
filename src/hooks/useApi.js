@@ -8,11 +8,15 @@ const useApi = () => {
     setLoading(true)
     setError(null)
 
+    // Token de autorizacion
+    const loginToken = localStorage.getItem('loginToken')
+
     try {
       const options = {
         method,
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${loginToken}`,
           ...headers,
         },
       }

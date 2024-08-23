@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { PostContext } from '../../context'
 import InteractionCard from '../../components/InteractionCard/InteractionCard'
 import SubleaderCard from '../../components/SubleaderCard/SubleaderCard'
+import useApi from '../../hooks/useApi'
 
 import './PersonalPostsList.css'
 
@@ -24,38 +25,49 @@ const PersonalPostsList = () => {
   const currentDate = getCurrentDate()
   const [selectedDate, setSelectedDate] = useState(currentDate)
 
-  const fetchData = async () => {
-    try {
-      const date = { date: selectedDate }
-      const loginToken = localStorage.getItem('loginToken')
+  // const fetchData = async () => {
+  //   try {
+  //     const date = { date: selectedDate }
+  //     const loginToken = localStorage.getItem('loginToken')
 
-      const requestOptions = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${loginToken}`,
-        },
-        body: JSON.stringify(date),
-      }
-      // const url = 'https://interaction-backend-1.onrender.com/api/user_posts'
-      const url = 'http://localhost:3000/api/user_posts'
+  //     const requestOptions = {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         Authorization: `Bearer ${loginToken}`,
+  //       },
+  //       body: JSON.stringify(date),
+  //     }
+  //     // const url = 'https://interaction-backend-1.onrender.com/api/user_posts'
+  //     const url = 'http://localhost:3000/api/user_posts'
 
-      const response = await fetch(url, requestOptions)
-      if (!response.ok) {
-        throw new Error('Error al realizar la solicitud')
-      }
-      const responseData = await response.json()
-      setPostsData(responseData)
+  //     const response = await fetch(url, requestOptions)
+  //     if (!response.ok) {
+  //       throw new Error('Error al realizar la solicitud')
+  //     }
+  //     const responseData = await response.json()
+  //     setPostsData(responseData)
 
-      // console.log('Posts data: ', postsData)
-    } catch (e) {
-      console.log('Error fetching data. ', e)
-    }
-  }
+  //     // console.log('Posts data: ', postsData)
+  //   } catch (e) {
+  //     console.log('Error fetching data. ', e)
+  //   }
+  // }
+
+  const { fetchData, loading, error } = useApi()
 
   useEffect(() => {
-    fetchData()
-  }, [])
+    // fetchData()
+    const getData = async () => {
+      const data = await fetchData(
+        'POST',
+        'http://localhost:3000/api/user_posts'
+      )
+      setPostsData(data)
+    }
+
+    getData()
+  }, [filteredPosts])
 
   const handleDateChange = (event) => {
     setSelectedDate(event.target.value)
@@ -66,7 +78,7 @@ const PersonalPostsList = () => {
   }
 
   return (
-    <div>
+    <div className='main-posts-lists-container'>
       <div className='filter-container'>
         <input
           type='date'
@@ -80,25 +92,20 @@ const PersonalPostsList = () => {
         </button>
       </div>
       <h3>Sub líderes</h3>
-      {filteredPosts.length > 0 &&
-        filteredPosts?.map((item, index) => (
-          <div key={index}>
-            <SubleaderCard data={item} />
-          </div>
-        ))}
+      {filteredPosts.length === 0 && <p>No existen coincidencias</p>}
       {postsData.length > 0 &&
-        filteredPosts.length === 0 &&
+        filteredPosts.message &&
         postsData.map((item, index) => (
           <div key={index}>
             <SubleaderCard data={item} />
           </div>
         ))}
-      {/* {postsData.length > 0 &&
-        postsData.map((item, index) => (
+      {!filteredPosts.message &&
+        filteredPosts.map((item, index) => (
           <div key={index}>
-            <SubleaderCard data={item} />
+            <InteractionCard data={item} />
           </div>
-        ))} */}
+        ))}
     </div>
   )
 }

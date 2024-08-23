@@ -1,12 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook } from '@fortawesome/free-brands-svg-icons'
-import { faCircle } from '@fortawesome/free-regular-svg-icons'
-import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
+// import {
+//   faHeart,
+//   faComment,
+//   faShareFromSquare,
+// } from '@fortawesome/free-regular-svg-icons'
+import {
+  faHeart,
+  faComment,
+  faShareFromSquare,
+} from '@fortawesome/free-solid-svg-icons'
 import './PostCard.css'
 
 const PostCard = (item, data) => {
   const [checked, setChecked] = useState(item.item.checked)
+  const [checkedComments, setCheckedComents] = useState(false)
+  const [checkedShared, setCheckedShared] = useState(false)
   const date = new Date()
 
   useEffect(() => {
@@ -65,30 +75,38 @@ const PostCard = (item, data) => {
         </p>
         {/* <p className='post-date'>{item.item?.register_date.slice(0, -14)}</p> */}
       </span>
-      {(checked && (
-        <FontAwesomeIcon
-          icon={faCircleCheck}
-          size='2x'
-          color='blue'
-          id='complete-icon'
-          // onClick={() => {
-          //   updateChecked(item.item.unique_post_id, 0)
-          //   item.item.checked = 0
-          //   setChecked(0)
-          // }}
-        />
-      )) || (
-        <FontAwesomeIcon
-          icon={faCircle}
-          size='2x'
-          id='complete-icon'
-          // onClick={() => {
-          //   updateChecked(item.item.unique_post_id, 1)
-          //   item.item.checked = 1
-          //   setChecked(1)
-          // }}
-        />
-      )}
+      <span className='interaction-icons'>
+        {(checked && (
+          <FontAwesomeIcon
+            icon={faHeart}
+            size='2x'
+            color='blue'
+            id='complete-icon'
+          />
+        )) || <FontAwesomeIcon icon={faHeart} size='2x' id='complete-icon' />}
+        {(checkedComments && (
+          <FontAwesomeIcon
+            icon={faComment}
+            size='2x'
+            color='blue'
+            id='complete-icon'
+          />
+        )) || <FontAwesomeIcon icon={faComment} size='2x' id='complete-icon' />}
+        {(checkedShared && (
+          <FontAwesomeIcon
+            icon={faShareFromSquare}
+            size='2x'
+            color='blue'
+            id='complete-icon'
+          />
+        )) || (
+          <FontAwesomeIcon
+            icon={faShareFromSquare}
+            size='2x'
+            id='complete-icon'
+          />
+        )}
+      </span>
     </div>
   )
 }

@@ -1,6 +1,10 @@
 .posts-lists {
   scroll-behavior: smooth;
 }
+
+.main-posts-lists-container {
+  padding-bottom: 1px;
+}
 .filter-container {
   display: flex;
   flex-direction: row;

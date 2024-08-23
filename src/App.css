@@ -16,11 +16,12 @@
   right: 0px;
 }
 .content {
-  height: 100vh;
+  height: 110vh;
 
   margin-top: 92px;
   padding: 0px 18px;
   scroll-behavior: smooth;
+  padding-bottom: 200px;
   /* height: 100%; */
 }
 
