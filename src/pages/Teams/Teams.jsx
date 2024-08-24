@@ -13,7 +13,10 @@ const Teams = () => {
   const getTeams = async () => {
     const loginToken = localStorage.getItem('loginToken')
 
-    const response = await fetch('http://localhost:3000/api/teams', {
+    const url = 'https://interaction-backend.onrender.com/api/teams'
+    // const url = 'http://localhost:3000/api/teams'
+
+    const response = await fetch(url, {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${loginToken}`,
@@ -55,8 +58,8 @@ const Teams = () => {
         body: JSON.stringify(formData),
       }
 
-      // const url = 'https://interaction-backend-1.onrender.com/api/teams'
-      const url = 'http://localhost:3000/api/teams'
+      const url = 'https://interaction-backend.onrender.com/api/teams'
+      // const url = 'http://localhost:3000/api/teams'
 
       sendData(url, requestOptions)
     } catch (e) {

@@ -56,7 +56,7 @@ const PostsItemCard = (data) => {
         body: JSON.stringify({ post_id: data.data.post_id }),
       }
 
-      const url = 'https://interaction-backend-1.onrender.com/api/posts'
+      const url = 'https://interaction-backend.onrender.com/api/posts'
 
       deletePost(url, requestOptions)
     } catch (e) {
@@ -76,11 +76,10 @@ const PostsItemCard = (data) => {
 
     console.log(data.data.post_url)
 
-    const response = await fetchData(
-      'POST',
-      'http://localhost:3000/api/update-post',
-      updateUrl
-    )
+    const url = 'https://interaction-backend.onrender.com/api/update-post'
+    // const url = 'http://localhost:3000/api/update-post'
+
+    const response = await fetchData('POST', url, updateUrl)
 
     console.log(response)
   }

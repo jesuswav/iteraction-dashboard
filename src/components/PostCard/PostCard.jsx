@@ -34,8 +34,8 @@ const PostCard = (item, data) => {
         body: JSON.stringify(data),
       }
 
-      // const url = 'https://interaction-backend-1.onrender.com/api/posts'
-      const url = 'http://localhost:3000/api/posts'
+      const url = 'https://interaction-backend.onrender.com/api/posts'
+      // const url = 'http://localhost:3000/api/posts'
 
       sendData(url, requestOptions)
     } catch (e) {
@@ -54,7 +54,7 @@ const PostCard = (item, data) => {
   useEffect(() => {
     const names = item.item.likes
 
-    const nameToSearch = item.data.personal_name
+    const nameToSearch = item.data?.personal_name
 
     const namesArray = names?.split(',').map((name) => name.trim())
 

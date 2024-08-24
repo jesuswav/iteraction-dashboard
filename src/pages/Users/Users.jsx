@@ -54,8 +54,8 @@ const Users = () => {
         body: JSON.stringify(formData),
       }
 
-      // const url = 'https://interaction-backend-1.onrender.com/api/personal'
-      const url = 'http://localhost:3000/api/personal'
+      const url = 'https://interaction-backend.onrender.com/api/personal'
+      // const url = 'http://localhost:3000/api/personal'
 
       sendData(url, requestOptions)
     } catch (e) {

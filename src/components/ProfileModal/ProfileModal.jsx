@@ -12,7 +12,10 @@ const ProfileModal = () => {
     const token = localStorage.getItem('loginToken')
 
     const getData = async () => {
-      const data = await getHook('http://localhost:3000/api/user', {
+      const url = 'https://interaction-backend.onrender.com/api/user'
+      // const url = 'http://localhost:3000/api/user'
+
+      const data = await getHook(url, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`,

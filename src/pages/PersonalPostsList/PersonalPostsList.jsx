@@ -29,11 +29,11 @@ const PersonalPostsList = () => {
 
   useEffect(() => {
     // fetchData()
+    const url = 'https://interaction-backend.onrender.com/api/user_posts'
+    // const url = 'http://localhost:3000/api/user_posts'
+
     const getData = async () => {
-      const data = await fetchData(
-        'POST',
-        'http://localhost:3000/api/user_posts'
-      )
+      const data = await fetchData('POST', url)
       setPostsData(data)
     }
 

@@ -36,7 +36,10 @@ const Search = () => {
     const loginToken = localStorage.getItem('loginToken')
     const data = { search: searchValue }
 
-    const response = await fetch('http://localhost:3000/api/search', {
+    const url = 'https://interaction-backend.onrender.com/api/search'
+    // const url = 'http://localhost:3000/api/search'
+
+    const response = await fetch(url, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${loginToken}`,

@@ -32,7 +32,10 @@ const UserForm = ({ handleSubmit }) => {
   const getTeams = async () => {
     const loginToken = localStorage.getItem('loginToken')
 
-    const response = await fetch('http://localhost:3000/api/teams', {
+    const url = 'https://interaction-backend.onrender.com/api/teams'
+    // const url = 'http://localhost:3000/api/teams'
+
+    const response = await fetch(url, {
       method: 'GET',
       headers: { Authorization: `Bearer ${loginToken}` },
     })
