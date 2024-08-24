@@ -15,7 +15,8 @@ const Login = () => {
         body: JSON.stringify(formData),
       }
 
-      const url = 'http://localhost:3000/api/login'
+      // const url = 'http://localhost:3000/api/login'
+      const url = 'https://interaction-backend.onrender.com/api/login'
 
       sendData(url, requestOptions)
     } catch (e) {
@@ -26,6 +27,8 @@ const Login = () => {
 
   const sendData = async (url, requestOptions) => {
     const response = await fetch(url, requestOptions)
+
+    console.log(response)
 
     if (!response.ok) {
       console.log('Error request')

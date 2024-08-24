@@ -13,7 +13,9 @@ function App() {
   const checkAuthentication = async () => {
     try {
       const loginToken = localStorage.getItem('loginToken')
-      const response = await fetch('http://localhost:3000/api/verify', {
+      const url = 'https://interaction-backend.onrender.com/api/verify'
+      // const url = 'http://localhost:3000/api/verify'
+      const response = await fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

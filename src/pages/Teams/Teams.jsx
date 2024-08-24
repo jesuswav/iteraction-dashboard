@@ -15,7 +15,9 @@ const Teams = () => {
 
     const response = await fetch('http://localhost:3000/api/teams', {
       method: 'GET',
-      headers: { Authorization: `Bearer ${loginToken}` },
+      headers: {
+        Authorization: `Bearer ${loginToken}`,
+      },
     })
     const responseData = await response.json()
     setTeams(responseData)
