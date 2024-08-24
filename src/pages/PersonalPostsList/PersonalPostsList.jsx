@@ -59,11 +59,10 @@ const PersonalPostsList = () => {
             value={selectedDate}
             onChange={handleDateChange}
           />
-          <button className='date-button'>
-            Filtrar
-          </button>
+          <button className='date-button'>Filtrar</button>
         </div>
         <div>
+          <h3>Sub líderes</h3>
           <p>Cargando...</p>
         </div>
       </div>
@@ -85,7 +84,6 @@ const PersonalPostsList = () => {
         </button>
       </div>
       <h3>Sub líderes</h3>
-      {loading && <p>Cargando...</p>}
       {filteredPosts.length === 0 && <p>No existen coincidencias</p>}
       {postsData.length > 0 &&
         filteredPosts.message &&
