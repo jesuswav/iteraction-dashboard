@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook } from '@fortawesome/free-brands-svg-icons'
-// import {
-//   faHeart,
-//   faComment,
-//   faShareFromSquare,
-// } from '@fortawesome/free-regular-svg-icons'
 import {
   faHeart,
   faComment,
   faShareFromSquare,
-} from '@fortawesome/free-solid-svg-icons'
+} from '@fortawesome/free-regular-svg-icons'
+// import {
+//   faHeart,
+//   faComment,
+//   faShareFromSquare,
+// } from '@fortawesome/free-solid-svg-icons'
 import './PostCard.css'
+import apiBase from '../../utils/API'
 
 const PostCard = (item, data) => {
   const [checked, setChecked] = useState(item.item.checked)
@@ -34,8 +35,7 @@ const PostCard = (item, data) => {
         body: JSON.stringify(data),
       }
 
-      const url = 'https://interaction-backend.onrender.com/api/posts'
-      // const url = 'http://localhost:3000/api/posts'
+      const url = `${apiBase}api/posts`
 
       sendData(url, requestOptions)
     } catch (e) {
@@ -77,13 +77,8 @@ const PostCard = (item, data) => {
       </span>
       <span className='interaction-icons'>
         {(checked && (
-          <FontAwesomeIcon
-            icon={faHeart}
-            size='2x'
-            color='blue'
-            id='complete-icon'
-          />
-        )) || <FontAwesomeIcon icon={faHeart} size='2x' id='complete-icon' />}
+          <FontAwesomeIcon icon={faHeart} color='blue' id='complete-icon' />
+        )) || <FontAwesomeIcon icon={faHeart} id='complete-icon' />}
         {(checkedComments && (
           <FontAwesomeIcon
             icon={faComment}
@@ -91,7 +86,7 @@ const PostCard = (item, data) => {
             color='blue'
             id='complete-icon'
           />
-        )) || <FontAwesomeIcon icon={faComment} size='2x' id='complete-icon' />}
+        )) || <FontAwesomeIcon icon={faComment} id='complete-icon' />}
         {(checkedShared && (
           <FontAwesomeIcon
             icon={faShareFromSquare}
@@ -99,13 +94,7 @@ const PostCard = (item, data) => {
             color='blue'
             id='complete-icon'
           />
-        )) || (
-          <FontAwesomeIcon
-            icon={faShareFromSquare}
-            size='2x'
-            id='complete-icon'
-          />
-        )}
+        )) || <FontAwesomeIcon icon={faShareFromSquare} id='complete-icon' />}
       </span>
     </div>
   )

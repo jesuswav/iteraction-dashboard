@@ -7,6 +7,7 @@ import {
   faPenToSquare,
   faTrash,
 } from '@fortawesome/free-solid-svg-icons'
+import apiBase from '../../utils/API'
 
 const TeamCard = (data) => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -49,8 +50,7 @@ const TeamCard = (data) => {
         body: JSON.stringify({ team_id: data.data.value }),
       }
 
-      const url = 'https://interaction-backend.onrender.com/api/teams'
-      // const url = 'http://localhost:3000/api/teams'
+      const url = `${apiBase}api/teams`
 
       deletePost(url, requestOptions)
     } catch (e) {

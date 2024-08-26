@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 import './Posts.css'
+import apiBase from '../../utils/API'
 
 const Posts = () => {
   const [posts, setPosts] = useState([])
@@ -55,8 +56,7 @@ const Posts = () => {
         body: JSON.stringify(formData),
       }
 
-      const url = 'https://interaction-backend.onrender.com/api/posts'
-      // const url = 'http://localhost:3000/api/posts'
+      const url = `${apiBase}api/posts`
 
       sendData(url, requestOptions)
     } catch (e) {
@@ -84,7 +84,7 @@ const Posts = () => {
       <div className='posts-grid-container'>
         {(posts.length > 0 &&
           posts?.map((item, index) => (
-            <div key={index} className='posts-div'>
+            <div key={index} className='posts-div-main-container'>
               <div className='posts-lists-container'>
                 <PostsItemCard data={item} />
               </div>

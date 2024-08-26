@@ -7,6 +7,7 @@ import {
   faTrash,
 } from '@fortawesome/free-solid-svg-icons'
 import './UserCard.css'
+import apiBase from '../../utils/API'
 
 const UserCard = (data) => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -49,8 +50,7 @@ const UserCard = (data) => {
         body: JSON.stringify({ personal_id: data.data.personal_id }),
       }
 
-      const url = 'https://interaction-backend.onrender.com/api/users'
-      // const url = 'http://localhost:3000/api/users'
+      const url = `${apiBase}api/users`
 
       deletePost(url, requestOptions)
     } catch (e) {

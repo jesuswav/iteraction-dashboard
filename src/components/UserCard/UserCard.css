@@ -12,7 +12,7 @@
   gap: 12px;
 }
 .user-card-subitem p {
-  font-size: larger;
+  font-size: 1.1rem;
   font-weight: 600;
 }
 
@@ -57,3 +57,10 @@
   padding: 0px;
   margin: 0px;
 }
+
+@media only screen and (min-width: 768px) and (max-width: 1800px) {
+  .user-card-subitem p {
+    font-size: 1.3rem;
+  }
+}
+

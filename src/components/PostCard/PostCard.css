@@ -7,6 +7,7 @@
   gap: 12px;
 }
 .post-name {
+  font-size: 0.8rem;
   font-weight: 500;
 }
 .post-date {
@@ -18,6 +19,10 @@
   align-items: center;
   gap: 10px;
 }
+
+.post-container #complete-icon {
+  height: 22px;
+}
 .post-container #complete-icon:hover {
   cursor: pointer;
 }
@@ -26,4 +31,10 @@
   display: flex;
   flex-direction: row;
   gap: 18px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1800px) {
+  .post-name {
+    font-size: 0.9rem;
+  }
 }
