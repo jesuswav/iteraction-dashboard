@@ -69,7 +69,7 @@ const Search = () => {
         <input
           className='search-input'
           type='text'
-          placeholder='Busca tu nombre'
+          placeholder='Buscar personal'
           value={estado}
           onChange={handleChange}
         />
