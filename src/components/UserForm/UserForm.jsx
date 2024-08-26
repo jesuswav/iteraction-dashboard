@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import Multiselect from '../SelectComponent/SelectComponent'
 import './UserForm.css'
+import apiBase from '../../utils/API'
 
 const UserForm = ({ handleSubmit }) => {
   const [selectedOption, setSelectedOption] = useState(null)
@@ -32,8 +33,7 @@ const UserForm = ({ handleSubmit }) => {
   const getTeams = async () => {
     const loginToken = localStorage.getItem('loginToken')
 
-    const url = 'https://interaction-backend.onrender.com/api/teams'
-    // const url = 'http://localhost:3000/api/teams'
+    const url = `${apiBase}api/teams`
 
     const response = await fetch(url, {
       method: 'GET',

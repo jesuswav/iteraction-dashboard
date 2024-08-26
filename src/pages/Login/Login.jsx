@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './Login.css'
+import apiBase from '../../utils/API'
 
 const Login = () => {
   const [username, setUsername] = useState('')
@@ -15,8 +16,7 @@ const Login = () => {
         body: JSON.stringify(formData),
       }
 
-      // const url = 'http://localhost:3000/api/login'
-      const url = 'https://interaction-backend.onrender.com/api/login'
+      const url = `${apiBase}api/login`
 
       sendData(url, requestOptions)
     } catch (e) {

@@ -5,6 +5,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import Modal from '../../components/Modal/Modal'
 import UserForm from '../../components/UserForm/UserForm'
 import UserCard from '../../components/UserCard/UserCard'
+import apiBase from '../../utils/API'
 
 const Users = () => {
   const [users, setUsers] = useState([])
@@ -54,8 +55,7 @@ const Users = () => {
         body: JSON.stringify(formData),
       }
 
-      const url = 'https://interaction-backend.onrender.com/api/personal'
-      // const url = 'http://localhost:3000/api/personal'
+      const url = `${apiBase}api/personal`
 
       sendData(url, requestOptions)
     } catch (e) {
@@ -80,7 +80,7 @@ const Users = () => {
 
   return (
     <div>
-      <h3>Users Component</h3>
+      <h3>Personal</h3>
       {(users.length > 0 &&
         users?.map((item, index) => (
           <div key={index}>

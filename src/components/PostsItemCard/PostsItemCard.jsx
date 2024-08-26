@@ -15,6 +15,7 @@ import './PostsItemCard.css'
 
 // Hooks
 import useApi from '../../hooks/useApi'
+import apiBase from '../../utils/API'
 
 const PostsItemCard = (data) => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -76,8 +77,7 @@ const PostsItemCard = (data) => {
 
     console.log(data.data.post_url)
 
-    const url = 'https://interaction-backend.onrender.com/api/update-post'
-    // const url = 'http://localhost:3000/api/update-post'
+    const url = `${apiBase}api/update-post`
 
     const response = await fetchData('POST', url, updateUrl)
 

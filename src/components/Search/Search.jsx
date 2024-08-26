@@ -5,6 +5,7 @@ import Modal from '../Modal/Modal'
 import ProfileModal from '../ProfileModal/ProfileModal'
 import { PostContext } from '../../context'
 import './Search.css'
+import apiBase from '../../utils/API'
 
 const Search = () => {
   // From context
@@ -36,8 +37,7 @@ const Search = () => {
     const loginToken = localStorage.getItem('loginToken')
     const data = { search: searchValue }
 
-    const url = 'https://interaction-backend.onrender.com/api/search'
-    // const url = 'http://localhost:3000/api/search'
+    const url = `${apiBase}api/search`
 
     const response = await fetch(url, {
       method: 'POST',

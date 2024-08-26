@@ -4,6 +4,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 import './ProfileModal.css'
 
 import getHook from '../../hooks/getHook'
+import apiBase from '../../utils/API'
 
 const ProfileModal = () => {
   const [userInfo, setUserInfo] = useState([])
@@ -12,8 +13,7 @@ const ProfileModal = () => {
     const token = localStorage.getItem('loginToken')
 
     const getData = async () => {
-      const url = 'https://interaction-backend.onrender.com/api/user'
-      // const url = 'http://localhost:3000/api/user'
+      const url = `${apiBase}api/user`
 
       const data = await getHook(url, {
         method: 'POST',

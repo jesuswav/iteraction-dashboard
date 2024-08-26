@@ -5,16 +5,21 @@ import { PostsProvider } from './context'
 import LoggedScreens from './pages/LoggedScreens/LoggedScreens'
 import NotLoggedScreens from './pages/NotLoggedScreens/NotLoggedScreens'
 
+import apiBase from './utils/API'
+
 function App() {
   const [authState, setAuthState] = useState({
     isAuthenticated: false,
   })
 
+  console.log(apiBase)
+
   const checkAuthentication = async () => {
     try {
       const loginToken = localStorage.getItem('loginToken')
-      const url = 'https://interaction-backend.onrender.com/api/verify'
-      // const url = 'http://localhost:3000/api/verify'
+
+      const url = `${apiBase}api/verify`
+
       const response = await fetch(url, {
         method: 'POST',
         headers: {

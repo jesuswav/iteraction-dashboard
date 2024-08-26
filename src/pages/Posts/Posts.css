@@ -2,7 +2,7 @@
   padding-bottom: 152px;
 }
 
-.posts-div {
+.posts-div-main-container {
   display: flex;
   flex-direction: column;
   justify-content: center;

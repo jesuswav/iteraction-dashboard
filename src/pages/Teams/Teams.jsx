@@ -4,6 +4,7 @@ import Modal from '../../components/Modal/Modal'
 import TeamForm from '../../components/TeamForm/TeamForm'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import apiBase from '../../utils/API'
 
 const Teams = () => {
   const [teams, setTeams] = useState([])
@@ -13,8 +14,7 @@ const Teams = () => {
   const getTeams = async () => {
     const loginToken = localStorage.getItem('loginToken')
 
-    const url = 'https://interaction-backend.onrender.com/api/teams'
-    // const url = 'http://localhost:3000/api/teams'
+    const url = `${apiBase}api/teams`
 
     const response = await fetch(url, {
       method: 'GET',
@@ -58,8 +58,7 @@ const Teams = () => {
         body: JSON.stringify(formData),
       }
 
-      const url = 'https://interaction-backend.onrender.com/api/teams'
-      // const url = 'http://localhost:3000/api/teams'
+      const url = `${apiBase}api/teams`
 
       sendData(url, requestOptions)
     } catch (e) {
@@ -83,7 +82,7 @@ const Teams = () => {
 
   return (
     <div>
-      <h3>Teams Component</h3>
+      <h3>Sublíderes</h3>
       {(teams.length > 0 &&
         teams?.map((item, index) => (
           <div key={index}>

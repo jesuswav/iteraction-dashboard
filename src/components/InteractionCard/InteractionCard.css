@@ -32,14 +32,18 @@
   justify-content: center;
   padding: 0px 6px 0px 6px;
   border-radius: 8px;
-  height: 28px;
+  height: 32px;
   color: white;
   font-weight: 700;
+  white-space: nowrap;
+}
+.team-tag p {
+  font-size: 0.9rem;
 }
 
 .name {
-  font-weight: 500;
-  font-size: larger;
+  font-weight: 600;
+  font-size: 1.1rem;
 }
 
 /* Styles of the list of posts */
@@ -51,7 +55,6 @@
   margin-top: -8px;
   margin-left: 28px;
 }
-
 
 @keyframes fadeIn {
   from {
@@ -78,4 +81,21 @@
 .visible {
   display: block;
   animation: fadeIn 0.5s forwards;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1800px) {
+  .name {
+    font-size: 1.2rem;
+  }
+  .team-tag {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 6px 0px 6px;
+    border-radius: 8px;
+    height: 28px;
+    color: white;
+    font-weight: 700;
+  }
 }
