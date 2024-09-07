@@ -64,3 +64,13 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+
+@media only screen and (min-width: 768px) and (max-width: 1800px) {
+  .modal.show {
+    display: block; /* Show the modal */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }  
+}

@@ -84,20 +84,24 @@ const PersonalPostsList = () => {
         </button>
       </div>
       <h3>Sub líderes</h3>
-      {filteredPosts.length === 0 && <p>No existen coincidencias</p>}
-      {postsData.length > 0 &&
-        filteredPosts.message &&
-        postsData.map((item, index) => (
-          <div key={index}>
-            <SubleaderCard data={item} />
-          </div>
-        ))}
-      {!filteredPosts.message &&
-        filteredPosts.map((item, index) => (
-          <div key={index}>
-            <InteractionCard data={item} />
-          </div>
-        ))}
+      <div className='subleader-item-container'>
+        <div>
+          {filteredPosts.length === 0 && <p>No existen coincidencias</p>}
+          {postsData.length > 0 &&
+            filteredPosts.message &&
+            postsData.map((item, index) => (
+              <div key={index}>
+                <SubleaderCard data={item} />
+              </div>
+            ))}
+          {!filteredPosts.message &&
+            filteredPosts.map((item, index) => (
+              <div key={index}>
+                <InteractionCard data={item} />
+              </div>
+            ))}
+        </div>
+      </div>
     </div>
   )
 }

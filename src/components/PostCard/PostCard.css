@@ -33,8 +33,12 @@
   gap: 18px;
 }
 
+.interaction-icons #complete-icon {
+  font-size: 2em;
+}
+
 @media only screen and (min-width: 768px) and (max-width: 1800px) {
   .post-name {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 }
