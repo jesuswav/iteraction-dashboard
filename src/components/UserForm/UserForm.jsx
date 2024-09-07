@@ -59,20 +59,20 @@ const UserForm = ({ handleSubmit }) => {
     <form className='form-container' onSubmit={onSubmit}>
       <span className='span-title-form'>
         <FontAwesomeIcon icon={faUser} size='2x' className='title-icon-form' />
-        <h4>Create a new user</h4>
+        <h4>Registrar en personal</h4>
       </span>
       <span className='span-subtitle-form'>
-        <h5>Create a new user and select his team</h5>
+        <h5>Registrar personal y definir el sublíder</h5>
       </span>
       <div className='input-container'>
-        <label className='input-label'>Personal name</label>
+        <label className='input-label'>Nombre</label>
         <input
           className='input'
           type='text'
           name='personal_name'
           value={formData.personal_name}
           onChange={handleChange}
-          placeholder='Personal name'
+          placeholder='Nombre'
           required
         />
       </div>
@@ -96,7 +96,7 @@ const UserForm = ({ handleSubmit }) => {
         />
       </div>
       <button className='post-form-button' type='submit'>
-        Create
+        Registrar
       </button>
     </form>
   )

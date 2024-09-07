@@ -28,30 +28,32 @@ const TeamForm = ({ handleSubmit }) => {
     <form className='form-container' onSubmit={onSubmit}>
       <span className='span-title-form'>
         <FontAwesomeIcon icon={faUsers} size='2x' className='title-icon-form' />
-        <h4>Create a new team</h4>
+        <h4>Registrar nuevo sublíder</h4>
       </span>
       <span className='span-subtitle-form'>
-        <h5>Create a new user and select his team</h5>
+        <h5>Crea un nuevo sublíder en el sistema</h5>
       </span>
       <div className='input-container'>
-        <label className='input-label'>Team name</label>
+        <label className='input-label'>Nombre del líder</label>
         <input
           className='input'
           type='text'
           name='team_name'
           value={teamName}
           onChange={handleChange}
-          placeholder='Team name'
+          placeholder='Nombre del líder'
           required
         />
       </div>
       <div>
-        <label className='input-label'>Team Color</label>
+        <label className='input-label'>
+          Color para identificarlo fácilmente
+        </label>
         <ColorPicker color={color} setColor={setColor} />
-        <p className='selected-color'>Color seleccionado: {color}</p>
+        {/* <p className='selected-color'>Color seleccionado: {color}</p> */}
       </div>
       <button className='post-form-button' type='submit'>
-        Create
+        Registrar
       </button>
     </form>
   )

@@ -80,17 +80,11 @@ const PostCard = (item, data) => {
           <FontAwesomeIcon icon={faHeart} color='blue' id='complete-icon' />
         )) || <FontAwesomeIcon icon={faHeart} id='complete-icon' />}
         {(checkedComments && (
-          <FontAwesomeIcon
-            icon={faComment}
-            size='2x'
-            color='blue'
-            id='complete-icon'
-          />
+          <FontAwesomeIcon icon={faComment} color='blue' id='complete-icon' />
         )) || <FontAwesomeIcon icon={faComment} id='complete-icon' />}
         {(checkedShared && (
           <FontAwesomeIcon
             icon={faShareFromSquare}
-            size='2x'
             color='blue'
             id='complete-icon'
           />

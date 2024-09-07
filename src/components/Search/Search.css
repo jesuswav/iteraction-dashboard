@@ -19,6 +19,9 @@
   border-radius: 26px;
 
   box-shadow: 3px 0px 12px rgba(0, 0, 0, 0.2);
+
+  padding-left: 2px;
+  padding-right: 2px;
 }
 
 .search-input {

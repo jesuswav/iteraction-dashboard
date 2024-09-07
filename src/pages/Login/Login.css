@@ -1,9 +1,11 @@
 .login-container {
-  height: 100vh;
-  overflow-y: hidden;
+  height: 98vh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  margin-top: 22px;
 }
 
 .login-second-container {
@@ -20,9 +22,8 @@
   justify-content: center;
   align-items: center;
 
-  margin-top: 152px;
+  margin-bottom: 2%;
 }
-.title-login-container h4 {}
 
 .login-logo {
   margin-top: 22px;
@@ -34,7 +35,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 60%;
+  width: 90%;
 }
 
 .main-input-container {
@@ -61,4 +62,23 @@
 }
 .sing-in {
   color: rgba(71, 116, 230, 1);
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1800px) {
+  .login-container {
+    padding-top: 8px;
+  }
+  .form-login-container {
+    width: 600px;
+    height: 100px;
+  }
+  .title-login-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* padding-bottom: 2%; */
+  }
 }
