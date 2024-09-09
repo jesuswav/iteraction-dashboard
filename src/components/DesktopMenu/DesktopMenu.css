@@ -1,0 +1,29 @@
+.desktop-menu-container {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.desktop-menu-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.desktop-menu-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.destop-menu-links {
+    padding: 12px;
+}
+
+.desktop-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

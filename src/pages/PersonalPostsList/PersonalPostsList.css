@@ -4,6 +4,7 @@
 
 .main-posts-lists-container {
   padding-bottom: 1px;
+  width: 100%;
 }
 .filter-container {
   display: flex;

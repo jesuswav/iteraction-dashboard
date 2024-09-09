@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import './Users.css'
 
 import Modal from '../../components/Modal/Modal'
 import UserForm from '../../components/UserForm/UserForm'
@@ -79,7 +80,7 @@ const Users = () => {
   }
 
   return (
-    <div>
+    <div className='personal-list-container'>
       <h3>Personal</h3>
       {(users.length > 0 &&
         users?.map((item, index) => (
