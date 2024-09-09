@@ -5,6 +5,7 @@ import TeamForm from '../../components/TeamForm/TeamForm'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import apiBase from '../../utils/API'
+import './Teams.css'
 
 const Teams = () => {
   const [teams, setTeams] = useState([])
@@ -81,7 +82,7 @@ const Teams = () => {
   }
 
   return (
-    <div>
+    <div className='subleader-team-container'>
       <h3>Sublíderes</h3>
       {(teams.length > 0 &&
         teams?.map((item, index) => (

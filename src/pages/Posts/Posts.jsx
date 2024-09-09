@@ -79,7 +79,7 @@ const Posts = () => {
   }
 
   return (
-    <div>
+    <div className='post-object-container'>
       <h3>Posts</h3>
       <div className='posts-grid-container'>
         {(posts.length > 0 &&

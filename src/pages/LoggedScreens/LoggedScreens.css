@@ -1,0 +1,38 @@
+.main-logged-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.desktop-search {
+  display: none;
+}
+.main-content {
+  width: 100%;
+}
+
+.tab-desktop-menu {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1800px) {
+  .tab-mobile-menu {
+    display: none;
+  }
+  .tab-desktop-menu {
+    position: fixed;
+    display: block;
+  }
+  .content {
+    width: 95%;
+  }
+  .main-content {
+    margin-left: 300px;
+    width: 100%;
+  }
+  .desktop-search {
+    display: block;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+  }
+}
