@@ -63,7 +63,9 @@ const PersonalPostsList = () => {
         </div>
         <div>
           <h3>Sub líderes</h3>
-          <p>Cargando...</p>
+          <div className='loader-container'>
+            <div className='loader'></div>
+          </div>
         </div>
       </div>
     )

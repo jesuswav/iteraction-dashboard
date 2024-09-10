@@ -4,6 +4,7 @@ import Modal from '../../components/Modal/Modal'
 import NewPostForm from '../../components/NewPostForm/NewPostForm'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { PostContext } from '../../context'
 
 import './Posts.css'
 import apiBase from '../../utils/API'
@@ -11,6 +12,7 @@ import apiBase from '../../utils/API'
 const Posts = () => {
   const [posts, setPosts] = useState([])
   const [newPost, setNewPost] = useState(false)
+  const { updatePost, setUpdatePost } = React.useContext(PostContext)
 
   const getPosts = async () => {
     const loginToken = localStorage.getItem('loginToken')
@@ -22,10 +24,11 @@ const Posts = () => {
     const responseData = await response.json()
     setPosts(responseData)
   }
-
   useEffect(() => {
     getPosts()
-  }, [newPost])
+    console.log('Hola')
+    setUpdatePost(false)
+  }, [newPost, updatePost])
 
   // Logica para el modal
   const [showModal, setShowModal] = useState(false)

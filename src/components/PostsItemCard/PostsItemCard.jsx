@@ -16,8 +16,12 @@ import './PostsItemCard.css'
 // Hooks
 import useApi from '../../hooks/useApi'
 import apiBase from '../../utils/API'
+import { PostContext } from '../../context'
 
 const PostsItemCard = (data) => {
+  // From PostContext
+  const { updatePost, setUpdatePost } = React.useContext(PostContext)
+
   const [menuOpen, setMenuOpen] = useState(false)
   const menuRef = useRef(null)
   const buttonRef = useRef(null)
@@ -70,6 +74,7 @@ const PostsItemCard = (data) => {
   // Funcion para actualizar los valores de un post
   const handleUpdate = async () => {
     setMenuOpen(false)
+    /////////////////
 
     const updateUrl = {
       post_url: data.data.post_url,
@@ -82,6 +87,7 @@ const PostsItemCard = (data) => {
     const response = await fetchData('POST', url, updateUrl)
 
     console.log(response)
+    setUpdatePost(true)
   }
 
   const imprimir = () => {
