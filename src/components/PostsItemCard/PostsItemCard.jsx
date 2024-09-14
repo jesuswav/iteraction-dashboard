@@ -110,7 +110,7 @@ const PostsItemCard = (data) => {
           <span className='item-firts-subcontainer'>
             <FontAwesomeIcon icon={faFacebook} size='3x' color='gray' />
             <span className='page-name'>
-              <p>UT Calvillo</p>
+              <p>{data.data.page_name}</p>
               <p className='post-date'>{data.data.register_date}</p>
             </span>
           </span>

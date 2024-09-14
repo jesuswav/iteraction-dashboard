@@ -24,18 +24,22 @@ const PersonalPostsList = () => {
     return `${year}-${month}-${day}`
   }
   const currentDate = getCurrentDate()
-  const [selectedDate, setSelectedDate] = useState(currentDate)
+  const [selectedDate, setSelectedDate] = useState(undefined)
 
   const { fetchData, loading, error } = useApi()
 
-  useEffect(() => {
-    // fetchData()
+  const getData = async () => {
     const url = `${apiBase}api/user_posts`
 
-    const getData = async () => {
-      const data = await fetchData('POST', url)
-      setPostsData(data)
+    const date = {
+      date: selectedDate,
     }
+    const data = await fetchData('POST', url, date)
+    setPostsData(data)
+  }
+
+  useEffect(() => {
+    // fetchData()
 
     getData()
   }, [filteredPosts])
@@ -45,7 +49,8 @@ const PersonalPostsList = () => {
   }
 
   const handleSubmit = () => {
-    fetchData()
+    setSelectedDate(currentDate)
+    getData()
   }
 
   if (loading) {
