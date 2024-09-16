@@ -5,31 +5,13 @@ import TeamForm from '../../components/TeamForm/TeamForm'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import apiBase from '../../utils/API'
+import useApi from '../../hooks/useApi'
 import './Teams.css'
 
 const Teams = () => {
   const [teams, setTeams] = useState([])
   const [newTeam, setNewTeam] = useState(false)
   const [animate, setAnimate] = useState()
-
-  const getTeams = async () => {
-    const loginToken = localStorage.getItem('loginToken')
-
-    const url = `${apiBase}api/teams`
-
-    const response = await fetch(url, {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${loginToken}`,
-      },
-    })
-    const responseData = await response.json()
-    setTeams(responseData)
-  }
-
-  useEffect(() => {
-    getTeams()
-  }, [newTeam])
 
   // Logica para el modal
   const [showModal, setShowModal] = useState(false)
@@ -79,6 +61,34 @@ const Teams = () => {
     const responseData = await response.json()
     console.log('Register response', responseData)
     setNewTeam(true)
+  }
+
+  const { fetchData, loading, error } = useApi()
+
+  const getData = async () => {
+    const url = `${apiBase}api/teams`
+
+    const data = await fetchData('GET', url)
+    setTeams(data)
+  }
+
+  useEffect(() => {
+    getData()
+    // getPosts()
+    console.log('Hola')
+  }, [newTeam])
+
+  if (loading) {
+    return (
+      <div className='main-posts-lists-container'>
+        <div>
+          <h3>Sublíderes</h3>
+          <div className='loader-container'>
+            <div className='loader'></div>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   return (

@@ -7,6 +7,7 @@ function PostsProvider({ children }) {
   const [postsData, setPostsData] = useState([])
   const [filteredPosts, setFilteredPosts] = useState([])
   const [notFilteredPosts, setNotFilteredPosts] = useState(true)
+  const [updatePost, setUpdatePost] = useState(false)
 
   return (
     <PostContext.Provider
@@ -19,6 +20,8 @@ function PostsProvider({ children }) {
         setFilteredPosts,
         notFilteredPosts,
         setNotFilteredPosts,
+        updatePost,
+        setUpdatePost,
       }}
     >
       {children}

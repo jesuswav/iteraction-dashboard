@@ -3,6 +3,8 @@ import { PostContext } from '../../context'
 import InteractionCard from '../../components/InteractionCard/InteractionCard'
 import SubleaderCard from '../../components/SubleaderCard/SubleaderCard'
 import useApi from '../../hooks/useApi'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import './PersonalPostsList.css'
 import apiBase from '../../utils/API'
@@ -24,18 +26,22 @@ const PersonalPostsList = () => {
     return `${year}-${month}-${day}`
   }
   const currentDate = getCurrentDate()
-  const [selectedDate, setSelectedDate] = useState(currentDate)
+  const [selectedDate, setSelectedDate] = useState(undefined)
 
   const { fetchData, loading, error } = useApi()
 
-  useEffect(() => {
-    // fetchData()
+  const getData = async () => {
     const url = `${apiBase}api/user_posts`
 
-    const getData = async () => {
-      const data = await fetchData('POST', url)
-      setPostsData(data)
+    const date = {
+      date: selectedDate,
     }
+    const data = await fetchData('POST', url, date)
+    setPostsData(data)
+  }
+
+  useEffect(() => {
+    // fetchData()
 
     getData()
   }, [filteredPosts])
@@ -45,7 +51,8 @@ const PersonalPostsList = () => {
   }
 
   const handleSubmit = () => {
-    fetchData()
+    setSelectedDate(currentDate)
+    getData()
   }
 
   if (loading) {
@@ -62,8 +69,10 @@ const PersonalPostsList = () => {
           <button className='date-button'>Filtrar</button>
         </div>
         <div>
-          <h3>Sub líderes</h3>
-          <p>Cargando...</p>
+          <h3>Sublíderes</h3>
+          <div className='loader-container'>
+            <div className='loader'></div>
+          </div>
         </div>
       </div>
     )
@@ -83,10 +92,15 @@ const PersonalPostsList = () => {
           Filtrar
         </button>
       </div>
-      <h3>Sub líderes</h3>
+      <h3>Sublíderes</h3>
       <div className='subleader-item-container'>
         <div>
-          {filteredPosts.length === 0 && <p>No existen coincidencias</p>}
+          {filteredPosts.length === 0 && (
+            <div className='error-search'>
+              <FontAwesomeIcon icon={faMagnifyingGlass} size='6x'/>
+              <p>No existen coincidencias</p>
+            </div>
+          )}
           {postsData.length > 0 &&
             filteredPosts.message &&
             postsData.map((item, index) => (

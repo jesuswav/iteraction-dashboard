@@ -58,9 +58,16 @@
   margin: 0px;
 }
 
+.user-card-name {
+  width: 180px;
+}
+
 @media only screen and (min-width: 768px) and (max-width: 1800px) {
   .user-card-subitem p {
     font-size: 1.3rem;
+  }
+  .user-card-name {
+    width: 400px;
   }
 }
 

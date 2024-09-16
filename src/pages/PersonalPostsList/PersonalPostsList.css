@@ -30,6 +30,18 @@
   border: none;
   border-radius: 8px;
 }
+.error-search {
+  display: flex;
+  flex-direction: column;
+  height: 402px;
+  justify-content: center;
+  align-items: center;
+  color: rgb(83, 83, 83);
+}
+.error-search p {
+  font-size: 1.5rem;
+}
+
 
 @media only screen and (min-width: 768px) and (max-width: 1800px) {
   .main-posts-lists-container {
@@ -37,5 +49,25 @@
     padding-right: 12px;
   }
 }
-  
 
+/* HTML: <div class="loader"></div> */
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  height: 402px;
+  justify-content: center;
+  align-items: center;
+}
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid;
+  border-color: #a1a1a1 #0000;
+  animation: l1 1s infinite;
+}
+@keyframes l1 {
+  to {
+    transform: rotate(0.5turn);
+  }
+}
