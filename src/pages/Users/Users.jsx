@@ -7,26 +7,12 @@ import Modal from '../../components/Modal/Modal'
 import UserForm from '../../components/UserForm/UserForm'
 import UserCard from '../../components/UserCard/UserCard'
 import apiBase from '../../utils/API'
+import useApi from '../../hooks/useApi'
 
 const Users = () => {
   const [users, setUsers] = useState([])
   const [newUser, setNewUser] = useState(false)
   const [animate, setAnimate] = useState()
-
-  const fetchUsers = async () => {
-    const loginToken = localStorage.getItem('loginToken')
-
-    const response = await fetch('http://localhost:3000/api/personal', {
-      method: 'GET',
-      headers: { Authorization: `Bearer ${loginToken}` },
-    })
-    const responseData = await response.json()
-    setUsers(responseData)
-  }
-
-  useEffect(() => {
-    fetchUsers()
-  }, [newUser])
 
   // Logica para el modal
   const [showModal, setShowModal] = useState(false)
@@ -77,6 +63,34 @@ const Users = () => {
     const responseData = await response.json()
     console.log('Register response', responseData)
     setNewUser(true)
+  }
+
+  const { fetchData, loading, error } = useApi()
+
+  const getData = async () => {
+    const url = `${apiBase}api/personal`
+
+    const data = await fetchData('GET', url)
+    setUsers(data)
+  }
+
+  useEffect(() => {
+    getData()
+    // getPosts()
+    console.log('Hola')
+  }, [newUser])
+
+  if (loading) {
+    return (
+      <div className='main-posts-lists-container'>
+        <div>
+          <h3>Personal</h3>
+          <div className='loader-container'>
+            <div className='loader'></div>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   return (

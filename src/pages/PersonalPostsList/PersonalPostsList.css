@@ -30,6 +30,18 @@
   border: none;
   border-radius: 8px;
 }
+.error-search {
+  display: flex;
+  flex-direction: column;
+  height: 402px;
+  justify-content: center;
+  align-items: center;
+  color: rgb(83, 83, 83);
+}
+.error-search p {
+  font-size: 1.5rem;
+}
+
 
 @media only screen and (min-width: 768px) and (max-width: 1800px) {
   .main-posts-lists-container {
@@ -42,7 +54,7 @@
 .loader-container {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 402px;
   justify-content: center;
   align-items: center;
 }

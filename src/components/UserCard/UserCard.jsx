@@ -71,7 +71,9 @@ const UserCard = (data) => {
     <div className='user-card-item'>
       <span className='user-card-subitem'>
         <FontAwesomeIcon icon={faUser} size='2x' color='gray' />
-        <p>{data.data.personal_name}</p>
+        <div className='user-card-name'>
+          <p>{data.data.personal_name}</p>
+        </div>
       </span>
       <span
         className='team-tag'
