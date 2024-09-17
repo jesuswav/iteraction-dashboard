@@ -75,7 +75,6 @@ const Teams = () => {
   useEffect(() => {
     getData()
     // getPosts()
-    console.log('Hola')
   }, [newTeam])
 
   if (loading) {

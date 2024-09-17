@@ -12,8 +12,6 @@ function App() {
     isAuthenticated: false,
   })
 
-  console.log(apiBase)
-
   const checkAuthentication = async () => {
     try {
       const loginToken = localStorage.getItem('loginToken')
