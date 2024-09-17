@@ -22,13 +22,10 @@ const Login = () => {
     } catch (e) {
       console.error(e)
     }
-    console.log(formData)
   }
 
   const sendData = async (url, requestOptions) => {
     const response = await fetch(url, requestOptions)
-
-    console.log(response)
 
     if (!response.ok) {
       console.log('Error request')
@@ -38,11 +35,8 @@ const Login = () => {
     console.log(responseData.token)
 
     if (responseData.token) {
-      console.log('Token definido')
       localStorage.setItem('loginToken', responseData.token)
     }
-
-    console.log('Response data', responseData)
 
     window.location.reload()
   }
@@ -57,8 +51,6 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    console.log('Username: ', username)
-    console.log('Password: ', password)
     loginrequest({ username: username, password: password })
   }
 

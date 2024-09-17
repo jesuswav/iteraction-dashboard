@@ -78,7 +78,6 @@ const Posts = () => {
   useEffect(() => {
     getData()
     // getPosts()
-    console.log('Hola')
     setUpdatePost(false)
   }, [newPost, updatePost])
 
